@@ -5,5 +5,5 @@ with (obj_scene)
     var position = numberOfPositions - 1;
     while (position > 0 && !ds_list_empty(positionList[| position]))
         position--;
-    ds_list_add_map(obj_scene.positionList[| position], argument0);
+    scene_add_character(position, argument0);
 }

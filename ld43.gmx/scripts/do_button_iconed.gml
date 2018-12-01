@@ -12,7 +12,7 @@ draw_panel_sprite(argument0, argument1, argument2, 14, argument4, mouseover);
 draw_set_font(fnt_small);
 draw_set_color(textcolor);
 draw_set_halign(fa_left);
-draw_text(argument0 + 12, argument1 + 3, argument3);
+draw_text(argument0 + iif(argument5 >= 0, 12, 3), argument1 + 3, argument3);
 if (argument5 >= 0)
     draw_sprite(argument5, 0, argument0 + 3, argument1 + 2);
     

@@ -31,13 +31,20 @@ textcolorlight = make_color_rgb(56 * 1.5, 50 * 1.5, 44 * 1.5);
 buttonsprite = spr_button;
 bgsprite = spr_message;
 messageText = "";
-headerInfo = -1;
+headerInfo = -1; //character_get
 tooltipAlt = "";
-
 age = 0;
+buttons = ds_list_create();
+continueText = "- Click to Continue -";
+continueScript = -1;
+continueScriptArg = -1;
+continueBlocked = false;
+
+/*
 messageText = "Hey! Don't steal my pigs! They are my most important possession and I can't afford to lose them.";
 headerInfo = character_get("Farmer");
-buttons = ds_list_create();
+continueBlocked = true;
+
 message_button_add("Indifferent", spr_mage1_icon, -1, -1, -1, "");
 message_button_add("Understanding", spr_mage1_icon, -1, -1, -1, "");
 var iconList = ds_list_create();
@@ -46,7 +53,7 @@ ds_list_add(iconList, spr_pig_icon_cost);
 message_button_add("Aggressive", spr_mage1_icon, iconList, -1, -1, "");
 message_button_add("Negotiate", spr_mage2_icon, -1, -1, -1, "");
 message_button_add("Groink", spr_pig_icon, -1, -1, -1, "The pig can talk too!");
-tooltipAlt = "Choose an attack!";
+tooltipAlt = "Choose an attack!";*/
 </string>
           </argument>
         </arguments>
@@ -131,6 +138,7 @@ if (messageText != "")
 var buttonsHeight = 0;
 var tooltip = "";
 var anyButtonHasTooltip = false;
+var continueHeight = 0;
 
 if (ds_list_size(buttons) &gt; 0) {
     buttonsHeight = 15;
@@ -150,9 +158,9 @@ if (ds_list_size(buttons) &gt; 0) {
         if (thisButton[? "tooltip"] != "")
             anyButtonHasTooltip = true;
     }
-}
+} else continueHeight = 8;
 
-var hh = 6 + headerHeight + messageHeight + buttonsHeight;
+var hh = 6 + headerHeight + messageHeight + buttonsHeight + continueHeight;
 if (anyButtonHasTooltip)
     hh += 11;
 
@@ -162,17 +170,19 @@ draw_panel_sprite(2, yy, ww, hh, bgsprite, 0);
 var xx = 5;
 yy += 4;
 
-draw_set_font(fnt_medium);
-draw_set_color(textcolor);
-draw_sprite(headerInfo[? "portrait"], 0, xx, yy - 1);
-draw_text(xx + 9, yy, headerInfo[? "name"]);
-if (ds_map_exists(headerInfo, "title") &amp;&amp; headerInfo[? "title"] != "") {
-    var nameWidth = string_width(headerInfo[? "name"]);
-    draw_set_color(textcolorlight);
-    draw_text(xx + 9 + nameWidth, yy, headerInfo[? "title"]);
+if (headerInfo &gt;= 0) {
+    draw_set_font(fnt_medium);
     draw_set_color(textcolor);
+    draw_sprite(headerInfo[? "portrait"], 0, xx, yy - 1);
+    draw_text(xx + 9, yy, headerInfo[? "name"]);
+    if (ds_map_exists(headerInfo, "title") &amp;&amp; headerInfo[? "title"] != "") {
+        var nameWidth = string_width(headerInfo[? "name"]);
+        draw_set_color(textcolorlight);
+        draw_text(xx + 9 + nameWidth, yy, headerInfo[? "title"]);
+        draw_set_color(textcolor);
+    }
+    yy += headerHeight;
 }
-yy += headerHeight;
 
 draw_set_font(fnt_small);
 draw_set_color(textcolor);
@@ -196,13 +206,44 @@ if (ds_list_size(buttons) &gt; 0) {
             yy += 17;
         }
         if (do_button_iconed(xx, yy, buttonW[i], thisButton[? "text"], buttonsprite, thisButton[? "mainicon"], thisButton[? "otherIcons"]))
-            if (thisButton[? "script"] &gt;= 0)
-                script_execute(thisButton[? "script"], thisButton[? "arg"]);
+            if (thisButton[? "script"] &gt;= 0) {
+                var xx = 5;
+                if (thisButton[? "tooltip"] != "") {
+                    draw_set_color(textcolor);
+                    draw_text(xx, tooltipY, thisButton[? "tooltip"]);
+                }          
+            
+                var scr = thisButton[? "script"];
+                var arg = thisButton[? "arg"];
+                instance_destroy();
+                script_execute(scr, arg);
+                exit;
+            }
         if (hovering_button_iconed(xx, yy, buttonW[i]))
             tooltip = thisButton[? "tooltip"];
         xx += buttonW[i] + 3;
     }
     yy += 17;
+} else {
+    draw_set_halign(fa_center);
+    draw_set_font(fnt_tiny);
+    draw_set_color(textcolorlight);
+    if (! continueBlocked)
+        draw_text(round(xx + ww / 2), yy, continueText);
+    draw_set_halign(fa_left);    
+    draw_set_font(fnt_small);
+    
+    yy += 8;
+    
+    if (! continueBlocked &amp;&amp; age &gt;= 3 &amp;&amp; mouse_check_button_pressed(mb_left)) {
+        if (continueScript &gt;= 0) {
+            var scr = thisButton[? "script"];
+            var arg = thisButton[? "arg"];
+            instance_destroy();
+            script_execute(scr, arg);  
+            exit;
+        }
+    }
 }
 
 var xx = 5;

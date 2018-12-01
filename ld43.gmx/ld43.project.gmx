@@ -25,6 +25,10 @@
         <sprite>sprites\spr_pig_icon_cost</sprite>
       </sprites>
     </sprites>
+    <sprites name="Abilities">
+      <sprite>sprites\spr_flyingpig</sprite>
+    </sprites>
+    <sprite>sprites\spr_selectionbox</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_air0</background>
@@ -54,13 +58,22 @@
       <script>scripts\smooth_step.gml</script>
       <script>scripts\string_from_number_onedigitafterdot.gml</script>
       <script>scripts\string_from_number_nottoowide.gml</script>
+      <script>scripts\ds_list_delete_first.gml</script>
     </scripts>
     <scripts name="Scene">
       <script>scripts\scene_add_character.gml</script>
       <script>scripts\scene_add_character_you.gml</script>
       <script>scripts\scene_add_character_other.gml</script>
+      <script>scripts\scene_find_identifier.gml</script>
+      <script>scripts\scene_destroy_character.gml</script>
+      <script>scripts\scene_get_x.gml</script>
+      <script>scripts\scene_get_y.gml</script>
+      <script>scripts\scene_get_xtransform.gml</script>
       <script>scripts\character_create.gml</script>
       <script>scripts\character_create_ext.gml</script>
+      <script>scripts\characterdrawer_normal.gml</script>
+      <script>scripts\characterdrawer_part.gml</script>
+      <script>scripts\characterdrawer_part_alt.gml</script>
       <script>scripts\character_get.gml</script>
     </scripts>
     <scripts name="Message">
@@ -69,30 +82,48 @@
       <script>scripts\button_iconed_get_width.gml</script>
       <script>scripts\message_button_add.gml</script>
     </scripts>
+    <scripts name="Abilities">
+      <script>scripts\abilities_create_inugor.gml</script>
+      <script>scripts\ability_create.gml</script>
+      <script>scripts\ability_choose_target.gml</script>
+      <script>scripts\ability_do_fromstaff.gml</script>
+    </scripts>
+    <scripts name="Cost">
+      <script>scripts\cost_create.gml</script>
+    </scripts>
+    <script>scripts\combat_continue.gml</script>
+    <script>scripts\combat_init_ability_choice_message.gml</script>
   </scripts>
   <shaders name="shaders"/>
   <fonts name="fonts">
     <font>fonts\fnt_small</font>
     <font>fonts\fnt_medium</font>
+    <font>fonts\fnt_tiny</font>
     <font>fonts\fnt_medium_alt</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_mage0</object>
-    <object>objects\obj_mage1</object>
-    <object>objects\obj_pig</object>
     <object>objects\obj_ground</object>
     <object>objects\obj_underground</object>
     <object>objects\obj_farmer</object>
     <object>objects\obj_message</object>
     <object>objects\obj_scene</object>
+    <object>objects\obj_targetselector</object>
+    <object>objects\obj_combat</object>
+    <objects name="Abilities">
+      <object>objects\par_ability</object>
+      <object>objects\ability_flyingpig</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
-  <constants number="3">
+  <constants number="6">
     <constant name="tileWidth">24</constant>
     <constant name="alignment_you">1</constant>
     <constant name="alignment_other">0</constant>
+    <constant name="alignment_any">2</constant>
+    <constant name="tileHeight">24</constant>
+    <constant name="damageColor">make_color_rgb(200, 50, 50)</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
