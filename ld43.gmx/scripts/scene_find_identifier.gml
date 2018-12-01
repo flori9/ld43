@@ -6,7 +6,7 @@ if ((argument2 && (alignmentToFindIdentifierOf != alignment_any && alignmentToFi
         var chars = obj_scene.positionList[| i];
         for (var j = 0; j < ds_list_size(chars); j++) {
             var char = chars[| j];
-            if (char[? "identifier"] == identifierToFind && (alignmentToFindIdentifierOf == alignment_other || char[? "alignment"] == alignmentToFindIdentifierOf))
+            if (char[? "identifier"] == identifierToFind && (alignmentToFindIdentifierOf == alignment_any || char[? "alignment"] == alignmentToFindIdentifierOf))
                 return char;
         }
     }
@@ -15,7 +15,7 @@ if ((argument2 && (alignmentToFindIdentifierOf != alignment_any && alignmentToFi
         var chars = obj_scene.positionList[| i];
         for (var j = 0; j < ds_list_size(chars); j++) {
             var char = chars[| j];
-            if (char[? "identifier"] == identifierToFind && (alignmentToFindIdentifierOf == alignment_other || char[? "alignment"] == alignmentToFindIdentifierOf))
+            if (char[? "identifier"] == identifierToFind && (alignmentToFindIdentifierOf == alignment_any || char[? "alignment"] == alignmentToFindIdentifierOf))
                 return char;
         }
     }

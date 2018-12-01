@@ -70,6 +70,7 @@
       <script>scripts\scene_add_character_you.gml</script>
       <script>scripts\scene_add_character_other.gml</script>
       <script>scripts\scene_find_identifier.gml</script>
+      <script>scripts\scene_count_identifier.gml</script>
       <script>scripts\scene_find_empty.gml</script>
       <script>scripts\scene_destroy_character.gml</script>
       <script>scripts\scene_get_x.gml</script>
@@ -81,6 +82,8 @@
       <script>scripts\characterdrawer_part.gml</script>
       <script>scripts\characterdrawer_part_alt.gml</script>
       <script>scripts\character_get.gml</script>
+      <script>scripts\scene_draw_hp.gml</script>
+      <script>scripts\character_do_damage.gml</script>
     </scripts>
     <scripts name="Message">
       <script>scripts\do_button_iconed.gml</script>
@@ -95,10 +98,14 @@
       <script>scripts\ability_do_fromstaff_noTarget.gml</script>
       <script>scripts\ability_do_fromstaff.gml</script>
     </scripts>
-    <scripts name="Cost">
-      <script>scripts\cost_create.gml</script>
+    <scripts name="Requirement">
+      <script>scripts\requirement_create.gml</script>
+      <script>scripts\requirement_set_pigs.gml</script>
     </scripts>
     <script>scripts\combat_continue.gml</script>
+    <script>scripts\combat_continue_witharg.gml</script>
+    <script>scripts\combat_wait.gml</script>
+    <script>scripts\combat_show_result_message.gml</script>
     <script>scripts\combat_init_ability_choice_message.gml</script>
   </scripts>
   <fonts name="fonts">

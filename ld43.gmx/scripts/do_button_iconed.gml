@@ -1,14 +1,14 @@
-///do_button_iconed(x, y, width, text, sprite, icon, rightIcons)
+///do_button_iconed(x, y, width, text, sprite, icon, rightIcons, isEnabled)
 var mouseover = 0, clicked = false;
 
-if (mouse_in_box_wh(argument0, argument1, argument2, 14))
+if (argument7 && mouse_in_box_wh(argument0, argument1, argument2, 14))
 {
     mouseover = 1;
     if (mouse_check_button_pressed(mb_left) && age > 3) {
         clicked = true;
     }
 }
-draw_panel_sprite(argument0, argument1, argument2, 14, argument4, mouseover);
+draw_panel_sprite(argument0, argument1, argument2, 14, argument4, mouseover + 2 * (!argument7));
 draw_set_font(fnt_small);
 draw_set_color(textcolor);
 draw_set_halign(fa_left);

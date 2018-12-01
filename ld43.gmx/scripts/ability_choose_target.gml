@@ -8,7 +8,7 @@ if (char[? "alignment"] == alignment_other) {
     msg.messageText = "Click on a target to cast " + abilityname + ".";
     msg.headerInfo = char;
     with (msg)
-        message_button_add("Cancel", -1, -1, combat_init_ability_choice_message, char, "");
+        message_button_add("Cancel", -1, -1, combat_init_ability_choice_message, char, "", true);
         
     with (instance_create(0, 0, obj_targetselector)) {
         chooseFromAlignment = targetalignment;

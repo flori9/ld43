@@ -61,7 +61,7 @@ if (stage == 1) {
     var toX = scene_get_x(pigToFlyTo) + iif(myAlignment == alignment_other, 8, 16);
     x = lerp(xstart, toX, smooth_step(stagesub));
     
-    stagesub += 0.05;
+    stagesub += 4 / abs(toX - xstart);
     if (stagesub &gt;= 1) {
         stagesub = 0;
         stage += 1;
@@ -106,6 +106,13 @@ else if (stage == 4) {
         stage += 1;
         ystart = y;
         pigTransform = -pigTransform;
+        if (myAlignment == alignment_other) {
+            x += 8;
+            pigRelX -= 8;
+        } else {
+            x -= 8;
+            pigRelX += 8;
+        }
     }
 }
 else if (stage == 5) {
@@ -120,9 +127,9 @@ else if (stage == 5) {
             scene_add_character(targetPos, pigToFlyTo);
             pigToFlyTo[? "alignment"] = !pigToFlyTo[? "alignment"];
             
+            combat_show_result_message(fromCharacter[? "name"] + " stole a pig!", fromCharacter);
             instance_destroy();
-            with (obj_combat)
-                combat_continue();
+            exit;
         }
     }
 }

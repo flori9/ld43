@@ -62,7 +62,7 @@ if (stage == 1) {
     var toX = scene_get_x(pigToFlyTo) + iif(myAlignment == alignment_other, 16, 8);
     x = lerp(xstart, toX, smooth_step(stagesub));
     
-    stagesub += 0.05;
+    stagesub += 4 / abs(toX - xstart);
     if (stagesub &gt;= 1) {
         stagesub = 0;
         stage += 1;
@@ -117,8 +117,14 @@ else if (stage == 4) {
         stagesub = 0;
         
         //Actually do damage!
-        targetEradicated = false;
-        target[? "hp"] -= 4;
+        var targetName = target[? "name"];
+        targetHeSheIt = target[? "heSheIt"];
+        
+        var dmgResult = character_do_damage(target, 6);
+        targetEradicated = dmgResult[1];
+        damageMessage = fromCharacter[? "name"] + " dropped a pig from the air, which dealt " + string(floor(dmgResult[0])) + " damage to " + targetName + ".";
+        if (targetEradicated)
+            damageMessage += " " + string_capitalize_first(targetHeSheIt) + " has now been defeated!";
     }
 }
 else if (stage == 5) {
@@ -135,9 +141,9 @@ else if (stage == 6) {
     if (pig_alpha &lt;= 0) {
         pig_alpha = 0;
         if (targetEradicated) {
+            combat_show_result_message(damageMessage, fromCharacter);
             instance_destroy();
-            with (obj_combat)
-                combat_continue();
+            exit;
         } else {
             stage += 1;
             stagesub = 1;
@@ -154,9 +160,9 @@ else if (stage == 7) {
     if (stagesub &lt;= 0) {
         target[? "drawer"] = characterdrawer_normal;
         target[? "damageAnimStopping"] = true;
+        combat_show_result_message(damageMessage, fromCharacter);
         instance_destroy();
-        with (obj_combat)
-            combat_continue();
+        exit;
     }
 }
 </string>
