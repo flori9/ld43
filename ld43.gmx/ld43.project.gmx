@@ -65,6 +65,7 @@
       <script>scripts\scene_add_character_you.gml</script>
       <script>scripts\scene_add_character_other.gml</script>
       <script>scripts\scene_find_identifier.gml</script>
+      <script>scripts\scene_find_empty.gml</script>
       <script>scripts\scene_destroy_character.gml</script>
       <script>scripts\scene_get_x.gml</script>
       <script>scripts\scene_get_y.gml</script>
@@ -86,6 +87,7 @@
       <script>scripts\abilities_create_inugor.gml</script>
       <script>scripts\ability_create.gml</script>
       <script>scripts\ability_choose_target.gml</script>
+      <script>scripts\ability_do_fromstaff_noTarget.gml</script>
       <script>scripts\ability_do_fromstaff.gml</script>
     </scripts>
     <scripts name="Cost">
@@ -112,6 +114,7 @@
     <objects name="Abilities">
       <object>objects\par_ability</object>
       <object>objects\ability_flyingpig</object>
+      <object>objects\ability_pigsteal</object>
     </objects>
   </objects>
   <rooms name="rooms">

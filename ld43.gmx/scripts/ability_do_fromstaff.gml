@@ -5,4 +5,6 @@ var ability = instance_create(char[? "x"] * tileWidth + iif(argument1[? "alignme
 ability.target = targetChar;
 ability.fromCharacter = char;
 ability.myAlignment = argument1[? "alignment"];
-ability.otherAlignment = argument2[? "alignment"];
+ability.otherAlignment = alignment_any;
+if (argument2 >= 0)
+    ability.otherAlignment = argument2[? "alignment"];
