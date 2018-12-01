@@ -8,9 +8,17 @@
   <sprites name="sprites">
     <sprite>sprites\spr_mage0</sprite>
     <sprite>sprites\spr_mage1</sprite>
+    <sprite>sprites\spr_mage2</sprite>
+    <sprite>sprites\spr_farmer</sprite>
     <sprite>sprites\spr_pig</sprite>
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_underground</sprite>
+    <sprites name="UI">
+      <sprite>sprites\spr_message</sprite>
+      <sprites name="icons">
+        <sprite>sprites\spr_farmer_icon</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_air0</background>
@@ -42,12 +50,19 @@
     </scripts>
   </scripts>
   <shaders name="shaders"/>
+  <fonts name="fonts">
+    <font>fonts\fnt_small</font>
+    <font>fonts\fnt_medium</font>
+    <font>fonts\fnt_medium_alt</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_mage0</object>
     <object>objects\obj_mage1</object>
     <object>objects\obj_pig</object>
     <object>objects\obj_ground</object>
     <object>objects\obj_underground</object>
+    <object>objects\obj_farmer</object>
+    <object>objects\obj_message</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
