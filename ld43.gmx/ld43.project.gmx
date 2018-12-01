@@ -15,8 +15,14 @@
     <sprite>sprites\spr_underground</sprite>
     <sprites name="UI">
       <sprite>sprites\spr_message</sprite>
+      <sprite>sprites\spr_button</sprite>
       <sprites name="icons">
         <sprite>sprites\spr_farmer_icon</sprite>
+        <sprite>sprites\spr_mage0_icon</sprite>
+        <sprite>sprites\spr_mage1_icon</sprite>
+        <sprite>sprites\spr_mage2_icon</sprite>
+        <sprite>sprites\spr_pig_icon</sprite>
+        <sprite>sprites\spr_pig_icon_cost</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -31,6 +37,7 @@
       <script>scripts\draw_panel_sprite.gml</script>
       <script>scripts\draw_panel_sprite_ext.gml</script>
       <script>scripts\ds_list_add_map.gml</script>
+      <script>scripts\ds_list_add_list.gml</script>
       <script>scripts\iif.gml</script>
       <script>scripts\nonzerosign.gml</script>
       <script>scripts\place_free_with.gml</script>
@@ -48,6 +55,19 @@
       <script>scripts\string_from_number_onedigitafterdot.gml</script>
       <script>scripts\string_from_number_nottoowide.gml</script>
     </scripts>
+    <scripts name="Scene">
+      <script>scripts\scene_add_character.gml</script>
+      <script>scripts\scene_add_character_you.gml</script>
+      <script>scripts\scene_add_character_other.gml</script>
+      <script>scripts\character_create.gml</script>
+      <script>scripts\character_create_ext.gml</script>
+      <script>scripts\character_get.gml</script>
+    </scripts>
+    <scripts name="Message">
+      <script>scripts\do_button_iconed.gml</script>
+      <script>scripts\button_iconed_get_width.gml</script>
+      <script>scripts\message_button_add.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders"/>
   <fonts name="fonts">
@@ -63,10 +83,16 @@
     <object>objects\obj_underground</object>
     <object>objects\obj_farmer</object>
     <object>objects\obj_message</object>
+    <object>objects\obj_scene</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
+  <constants number="3">
+    <constant name="tileWidth">24</constant>
+    <constant name="alignment_you">1</constant>
+    <constant name="alignment_other">0</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

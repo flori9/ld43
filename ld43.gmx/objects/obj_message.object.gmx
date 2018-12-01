@@ -8,6 +8,96 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Vars
+textcolor = make_color_rgb(56, 50, 44);
+textcolorlight = make_color_rgb(56 * 1.5, 50 * 1.5, 44 * 1.5);
+buttonsprite = spr_button;
+bgsprite = spr_message;
+messageText = "";
+headerInfo = -1;
+
+age = 0;
+messageText = "Hey! Don't steal my pigs! They are my most important possession and I can't afford to lose them.";
+headerInfo = character_get("Farmer");
+buttons = ds_list_create();
+message_button_add("Indifferent", spr_mage1_icon, -1, -1, -1);
+message_button_add("Understanding", spr_mage1_icon, -1, -1, -1);
+var iconList = ds_list_create();
+ds_list_add(iconList, spr_pig_icon_cost);
+ds_list_add(iconList, spr_pig_icon_cost);
+message_button_add("Aggressive", spr_mage1_icon, iconList, -1, -1);
+message_button_add("Negotiate", spr_mage2_icon, -1, -1, -1);
+message_button_add("Groink", spr_pig_icon, -1, -1, -1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clean up
+ds_list_destroy(buttons);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Age
+age++;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,23 +115,76 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var hh = 60;
-var ww = room_width;
-var yy = room_height - hh;
-draw_panel_sprite(0, yy, ww, hh, spr_message, 0);
+            <string>///Draw a message
+var ww = room_width - 4;
 
-var xx = 2;
+draw_set_font(fnt_small);
+var headerHeight = 0;
+if (headerInfo &gt;= 0)
+    headerHeight = 12;
+var messageHeight = 0;
+if (messageText != "")
+    messageHeight = string_height_ext(messageText, 11, ww - 4);
+var buttonsHeight = 0;
+if (ds_list_size(buttons) &gt; 0) {
+    buttonsHeight = 17;
+    var buttonW;
+    var currW = 5;
+    for (var i = 0; i &lt; ds_list_size(buttons); i++) {
+        var thisButton = buttons[| i];
+        buttonW[i] = button_iconed_get_width(thisButton[? "text"], thisButton[? "mainicon"], thisButton[? "otherIcons"]);
+        if (currW + buttonW[i] + 3 &gt; ww - 2) {
+            currW = 5;
+            buttonsHeight += 17;
+            currW += buttonW[i] + 3;
+        }
+        else currW += buttonW[i] + 3;
+    }
+}
+
+var hh = 6 + headerHeight + messageHeight + buttonsHeight;
+var yy = room_height - hh - 2;
+draw_panel_sprite(2, yy, ww, hh, bgsprite, 0);
+
+var xx = 5;
 yy += 4;
 
 draw_set_font(fnt_medium);
-draw_set_color(make_color_rgb(56, 50, 44));
-draw_sprite(spr_farmer_icon, 0, xx, yy - 1);
-draw_text(xx + 9, yy, "Pig Farmer");
-yy += 13;
+draw_set_color(textcolor);
+draw_sprite(headerInfo[? "portrait"], 0, xx, yy - 1);
+draw_text(xx + 9, yy, headerInfo[? "name"]);
+if (ds_map_exists(headerInfo, "title") &amp;&amp; headerInfo[? "title"] != "") {
+    var nameWidth = string_width(headerInfo[? "name"]);
+    draw_set_color(textcolorlight);
+    draw_text(xx + 9 + nameWidth, yy, headerInfo[? "title"]);
+    draw_set_color(textcolor);
+}
+yy += headerHeight;
 
 draw_set_font(fnt_small);
-draw_set_color(make_color_rgb(56, 50, 44));
-draw_text_ext(xx, yy, "Hey! Don't steal my pigs! They are my most important possession and I can't afford to lose them.", 11, ww - 4);
+draw_set_color(textcolor);
+draw_text_ext(xx, yy, messageText, 11, ww - 4);
+yy += messageHeight;
+
+//Draw buttons
+var xx = 5;
+
+if (ds_list_size(buttons) &gt; 0) {
+    yy += 2;
+    for (var i = 0; i &lt; ds_list_size(buttons); i++) {
+        var thisButton = buttons[| i];
+        if (buttonW[i] + xx &gt; ww - 3) {
+            xx = 5;
+            yy += 17;
+        }
+        if (do_button_iconed(xx, yy, buttonW[i], thisButton[? "text"], buttonsprite, thisButton[? "mainicon"], thisButton[? "otherIcons"]))
+            if (thisButton[? "script"] &gt;= 0)
+                script_execute(thisButton[? "script"], thisButton[? "arg"]);
+        xx += buttonW[i] + 3;
+    }
+}
+
+var xx = 5;
 </string>
           </argument>
         </arguments>
