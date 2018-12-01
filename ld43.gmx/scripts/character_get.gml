@@ -23,5 +23,5 @@ switch (argument0)
         break;
         
     case "Pig":
-        return character_create(spr_pig, 0, "pig");
+        return character_create(spr_pig, 0, "pig", 3);
 }

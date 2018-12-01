@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -130,6 +130,21 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
         var isRotated = pos[? "alignment"] == alignment_other;
         
         script_execute(pos[? "drawer"], pos, i, isRotated, pos[? "drawerarg"]);
+        
+        
+        draw_set_font(fnt_tinier);
+        // 209, 101, 101
+        draw_set_color(make_color_rgb(56 * 2, 50 * 2, 44 * 2)); //make_color_rgb(166, 49, 49)
+        draw_panel_sprite(i * tileWidth + 1, groundY + 2, tileWidth - 2, 11, spr_healthbar, 0);
+        draw_panel_sprite(i * tileWidth + 1, groundY + 2, floor((tileWidth - 2) * (pos[? "hp"] / pos[? "maxHP"])), 11, spr_healthbar, 1);
+        draw_sprite(spr_heart, 0, i * tileWidth + 3, groundY + 4);
+        
+        draw_set_halign(fa_center);
+        //draw_sprite(spr_healthorb, 0, i * tileWidth + tileWidth / 2, groundY + 3 + 4);
+        //draw_text(i * tileWidth + tileWidth / 2, groundY + 3, string(floor(pos[? "hp"])));
+        draw_set_halign(fa_right);
+        draw_text(i * tileWidth + tileWidth - 3, groundY + 4, string(floor(pos[? "hp"])));
+        draw_set_halign(fa_left);
     }
 }
 </string>

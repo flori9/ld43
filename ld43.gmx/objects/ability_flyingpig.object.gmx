@@ -118,6 +118,7 @@ else if (stage == 4) {
         
         //Actually do damage!
         targetEradicated = false;
+        target[? "hp"] -= 4;
     }
 }
 else if (stage == 5) {

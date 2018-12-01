@@ -29,6 +29,11 @@
       <sprite>sprites\spr_flyingpig</sprite>
     </sprites>
     <sprite>sprites\spr_selectionbox</sprite>
+    <sprite>sprites\spr_heart</sprite>
+    <sprite>sprites\spr_heart_alt</sprite>
+    <sprite>sprites\spr_healthorb</sprite>
+    <sprite>sprites\spr_healthbar</sprite>
+    <sprite>sprites\sprite20</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_air0</background>
@@ -96,11 +101,11 @@
     <script>scripts\combat_continue.gml</script>
     <script>scripts\combat_init_ability_choice_message.gml</script>
   </scripts>
-  <shaders name="shaders"/>
   <fonts name="fonts">
     <font>fonts\fnt_small</font>
     <font>fonts\fnt_medium</font>
     <font>fonts\fnt_tiny</font>
+    <font>fonts\fnt_tinier</font>
     <font>fonts\fnt_medium_alt</font>
   </fonts>
   <objects name="objects">
