@@ -1,5 +1,5 @@
-///scene_draw_hp(hpToDraw, maxHPToDraw, pos, anim)
-var hpToDraw = argument0, maxHPToDraw = argument1, i = argument2, anim = argument3;
+///scene_draw_hp(hpToDraw, maxHPToDraw, pos, anim, anim2, prevHP)
+var hpToDraw = argument0, maxHPToDraw = argument1, i = argument2, anim = argument3, anim2 = argument4, prevHP = argument5;
 var transformX = i * tileWidth + 1, transformY = groundY + 2;
 
 if (anim < 1) {
@@ -13,9 +13,9 @@ if (anim < 1) {
     transformY = 0;
 }
 draw_set_font(fnt_tinier);
-draw_set_color(make_color_rgb(56 * 2, 50 * 2, 44 * 2));
+draw_set_color(merge_color(make_color_rgb(56 * 2, 50 * 2, 44 * 2), make_color_rgb(56, 50, 44), smooth_step(anim2)));
 draw_panel_sprite(transformX, transformY, tileWidth - 2, 11, spr_healthbar, 0);
-draw_panel_sprite(transformX, transformY, floor((tileWidth - 2) * (hpToDraw / maxHPToDraw)), 11, spr_healthbar, 1);
+draw_panel_sprite(transformX + 1, transformY, floor((tileWidth - 4) * (lerp(hpToDraw, prevHP, smooth_step(anim2)) / maxHPToDraw)), 11, spr_healthbar, 1);
 draw_sprite(spr_heart, 0, transformX + 2, transformY + 2);
 
 draw_set_halign(fa_right);

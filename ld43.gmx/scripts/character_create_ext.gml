@@ -1,5 +1,5 @@
-///character_create_ext(sprite, index, wandx, wandy, name, title, portrait, hp, abilities, heSheIt)
-var char = character_create(argument0, argument1, argument4, argument7, argument4);
+///character_create_ext(sprite, index, wandx, wandy, name, title, portrait, hp, abilities, heSheIt, centerx, centery)
+var char = character_create(argument0, argument1, argument4, argument7, argument4, argument10, argument11);
 char[? "wandx"] = argument2;
 char[? "wandy"] = argument3;
 

@@ -6,6 +6,9 @@ var defeated = false;
 if (doDmgOn[? "hp"] <= 0) {
     scene_destroy_character(doDmgOn);
     defeated = true;
+} else {
+    doDmgOn[? "hpAnim"] = 1;
+    doDmgOn[? "previousHP"] = doDmgOn[? "hp"] + dmgAmount;
 }
 
 return array(dmgAmount, defeated);

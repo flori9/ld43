@@ -114,6 +114,8 @@ for (var i = 0; i &lt; obj_scene.numberOfPositions; i++) {
         
         if (char[? "damageAnimStopping"] &amp;&amp; char[? "damageAnim"] &gt; 0)
             char[? "damageAnim"] = max(char[? "damageAnim"] - 0.05, 0);
+        if (char[? "hpAnim"] &gt; 0)
+            char[? "hpAnim"] = max(char[? "hpAnim"] - 0.05, 0);
     }
 }
 </string>
@@ -142,6 +144,8 @@ for (var i = 0; i &lt; obj_scene.numberOfPositions; i++) {
 for (var i = 0; i &lt; numberOfPositions; i++) {
     var thisPosList = positionList[|i];
     var hpToDraw = -1, maxHPToDraw = -1;
+    var hpAnimToDraw = 0;
+    var prevHP = -1;
     
     for (var j = 0; j &lt; ds_list_size(thisPosList); j++) {
         var pos = thisPosList[| j];
@@ -151,12 +155,15 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
         
         hpToDraw = pos[? "hp"];
         maxHPToDraw = pos[? "maxHP"];
+        hpAnimToDraw = pos[? "hpAnim"];
+        prevHP = pos[? "prevHP"];
     }
     
     if (hpToDraw &lt; 0 &amp;&amp; maxHPToDraw &lt; 0) {
         healthAnimsOldOutAnim[| i] = max(0, healthAnimsOldOutAnim[| i] - 0.1);
         hpToDraw = healthAnimsOldHP[| i];
         maxHPToDraw = healthAnimsOldMaxHP[| i];
+        prevHP = hpToDraw;
     }
     else {
         healthAnimsOldOutAnim[| i] = min(1, healthAnimsOldOutAnim[| i] + 0.1);
@@ -165,7 +172,7 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
     }
     
     if (healthAnimsOldOutAnim[| i] &gt; 0)
-        scene_draw_hp(hpToDraw, maxHPToDraw, i, healthAnimsOldOutAnim[| i]);
+        scene_draw_hp(hpToDraw, maxHPToDraw, i, healthAnimsOldOutAnim[| i], hpAnimToDraw, prevHP);
 }
 </string>
           </argument>
