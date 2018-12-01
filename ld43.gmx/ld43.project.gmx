@@ -66,6 +66,7 @@
       <script>scripts\string_from_number_onedigitafterdot.gml</script>
       <script>scripts\string_from_number_nottoowide.gml</script>
       <script>scripts\ds_list_delete_first.gml</script>
+      <script>scripts\ds_list_any.gml</script>
     </scripts>
     <scripts name="Scene">
       <script>scripts\scene_add_character.gml</script>
@@ -86,6 +87,7 @@
       <script>scripts\character_get.gml</script>
       <script>scripts\scene_draw_hp.gml</script>
       <script>scripts\character_do_damage.gml</script>
+      <script>scripts\character_heal.gml</script>
     </scripts>
     <scripts name="Message">
       <script>scripts\do_button_iconed.gml</script>
