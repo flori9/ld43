@@ -2,7 +2,7 @@
 var targetalignment = argument0[0], abilityscript = argument0[1], abilityarg = argument0[2], abilityname = argument0[3];
 var char = obj_combat.combatCharacter;
 if (char[? "alignment"] == alignment_other) {
-    //todo: let them choose
+    script_execute(abilityscript, abilityarg, obj_combat.combatCharacter, ability_choose_target_ai(argument0[4]));
 } else {
     var msg = instance_create(0, 0, obj_message);
     msg.messageText = "Click on a target to cast " + abilityname + ".";

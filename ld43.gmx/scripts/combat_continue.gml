@@ -26,7 +26,10 @@ with (obj_combat) {
     }
     
     if (combatCharacter != -1) {
-        combat_init_ability_choice_message(combatCharacter);
+        if (combatCharacter[? "alignment"] == alignment_other)
+            combat_do_ai(combatCharacter);
+        else
+            combat_init_ability_choice_message(combatCharacter);
     }
     else {
         var msg = instance_create(0, 0, obj_message);

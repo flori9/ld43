@@ -93,8 +93,10 @@
     </scripts>
     <scripts name="Abilities">
       <script>scripts\abilities_create_inugor.gml</script>
+      <script>scripts\abilities_create_runar.gml</script>
       <script>scripts\ability_create.gml</script>
       <script>scripts\ability_choose_target.gml</script>
+      <script>scripts\ability_choose_target_ai.gml</script>
       <script>scripts\ability_do_fromstaff_noTarget.gml</script>
       <script>scripts\ability_do_fromstaff.gml</script>
     </scripts>
@@ -102,11 +104,15 @@
       <script>scripts\requirement_create.gml</script>
       <script>scripts\requirement_set_pigs.gml</script>
     </scripts>
-    <script>scripts\combat_continue.gml</script>
-    <script>scripts\combat_continue_witharg.gml</script>
-    <script>scripts\combat_wait.gml</script>
-    <script>scripts\combat_show_result_message.gml</script>
-    <script>scripts\combat_init_ability_choice_message.gml</script>
+    <scripts name="Combat">
+      <script>scripts\combat_continue.gml</script>
+      <script>scripts\combat_continue_witharg.gml</script>
+      <script>scripts\combat_wait.gml</script>
+      <script>scripts\combat_show_result_message.gml</script>
+      <script>scripts\combat_init_ability_choice_message.gml</script>
+      <script>scripts\combat_do_ai.gml</script>
+      <script>scripts\combat_check_reqs.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_small</font>
@@ -132,13 +138,16 @@
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
-  <constants number="6">
+  <constants number="9">
     <constant name="tileWidth">24</constant>
     <constant name="alignment_you">1</constant>
     <constant name="alignment_other">0</constant>
     <constant name="alignment_any">2</constant>
     <constant name="tileHeight">24</constant>
     <constant name="damageColor">make_color_rgb(200, 50, 50)</constant>
+    <constant name="strategyLowestHP">0</constant>
+    <constant name="strategyHighestHP">1</constant>
+    <constant name="strategyPigs">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

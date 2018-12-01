@@ -9,7 +9,7 @@ switch (argument0)
     case "Runar":
         return character_create_ext(spr_mage0, 0, 19, 11,
             "Runar", ", the Wise", spr_mage0_icon,
-            9, ds_list_create(), "he");
+            9, abilities_create_runar(), "he");
         break;
     case "Tom":
         return character_create_ext(spr_mage1, 0, 20, 10,
