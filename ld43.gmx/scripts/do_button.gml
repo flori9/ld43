@@ -6,10 +6,6 @@ if (mouse_in_box_wh(argument0, argument1, argument2, 11))
     mouseover = 1;
     if (mouse_check_button_pressed(mb_left) && age > 3) {
         clicked = true;
-        if (argument3 == "Play!" || argument3 == "Retry")
-            soundeffect_play(snd_buttongamestart);
-        else
-            soundeffect_play(snd_button);
     }
 }
 draw_panel_sprite(argument0, argument1, argument2, 11, spr_button, mouseover);

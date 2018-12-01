@@ -6,7 +6,6 @@ if (mouse_in_box_wh(argument0, argument1, argument2, 14))
     mouseover = 1;
     if (mouse_check_button_pressed(mb_left) && age > 3) {
         clicked = true;
-        soundeffect_play(snd_button);
     }
 }
 draw_panel_sprite(argument0, argument1, argument2, 14, spr_button, mouseover);

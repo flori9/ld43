@@ -12,7 +12,6 @@ if (mouse_in_box_wh(argument0, argument1, 11, 11))
     draw_text(argument5, argument6, argument7);
     if (mouse_check_button_pressed(mb_left) && age > 3) {
         clicked = true;
-        soundeffect_play(snd_button);
     }
 }
 draw_set_alpha(1);

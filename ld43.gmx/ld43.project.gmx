@@ -5,7 +5,10 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_mage0</sprite>
+    <sprite>sprites\spr_pig</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -34,6 +37,10 @@
     </scripts>
   </scripts>
   <shaders name="shaders"/>
+  <objects name="objects">
+    <object>objects\obj_mage0</object>
+    <object>objects\obj_pig</object>
+  </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
