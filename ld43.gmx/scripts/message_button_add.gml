@@ -1,4 +1,4 @@
-///message_button_add(text, mainicon, othericons, script, arg)
+///message_button_add(text, mainicon, othericons, script, arg, tooltip)
 with (obj_message) {
     var button = ds_map_create();
     button[? "text"] = argument0;
@@ -9,6 +9,7 @@ with (obj_message) {
         ds_map_add_list(button, "otherIcons", argument2);
     else
         button[? "otherIcons"] = argument2;
+    button[? "tooltip"] = argument5;
     ds_list_add_map(buttons, button);
     return button;
 }

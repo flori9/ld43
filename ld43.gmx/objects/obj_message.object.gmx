@@ -32,19 +32,21 @@ buttonsprite = spr_button;
 bgsprite = spr_message;
 messageText = "";
 headerInfo = -1;
+tooltipAlt = "";
 
 age = 0;
 messageText = "Hey! Don't steal my pigs! They are my most important possession and I can't afford to lose them.";
 headerInfo = character_get("Farmer");
 buttons = ds_list_create();
-message_button_add("Indifferent", spr_mage1_icon, -1, -1, -1);
-message_button_add("Understanding", spr_mage1_icon, -1, -1, -1);
+message_button_add("Indifferent", spr_mage1_icon, -1, -1, -1, "");
+message_button_add("Understanding", spr_mage1_icon, -1, -1, -1, "");
 var iconList = ds_list_create();
 ds_list_add(iconList, spr_pig_icon_cost);
 ds_list_add(iconList, spr_pig_icon_cost);
-message_button_add("Aggressive", spr_mage1_icon, iconList, -1, -1);
-message_button_add("Negotiate", spr_mage2_icon, -1, -1, -1);
-message_button_add("Groink", spr_pig_icon, -1, -1, -1);
+message_button_add("Aggressive", spr_mage1_icon, iconList, -1, -1, "");
+message_button_add("Negotiate", spr_mage2_icon, -1, -1, -1, "");
+message_button_add("Groink", spr_pig_icon, -1, -1, -1, "The pig can talk too!");
+tooltipAlt = "Choose an attack!";
 </string>
           </argument>
         </arguments>
@@ -124,25 +126,36 @@ if (headerInfo &gt;= 0)
     headerHeight = 12;
 var messageHeight = 0;
 if (messageText != "")
-    messageHeight = string_height_ext(messageText, 11, ww - 4);
+    messageHeight = string_height_ext(messageText, 11, ww - 4) + 2;
+
 var buttonsHeight = 0;
+var tooltip = "";
+var anyButtonHasTooltip = false;
+
 if (ds_list_size(buttons) &gt; 0) {
-    buttonsHeight = 17;
+    buttonsHeight = 15;
     var buttonW;
     var currW = 5;
     for (var i = 0; i &lt; ds_list_size(buttons); i++) {
         var thisButton = buttons[| i];
+        
         buttonW[i] = button_iconed_get_width(thisButton[? "text"], thisButton[? "mainicon"], thisButton[? "otherIcons"]);
         if (currW + buttonW[i] + 3 &gt; ww - 2) {
             currW = 5;
             buttonsHeight += 17;
-            currW += buttonW[i] + 3;
         }
-        else currW += buttonW[i] + 3;
+
+        currW += buttonW[i] + 3;
+        
+        if (thisButton[? "tooltip"] != "")
+            anyButtonHasTooltip = true;
     }
 }
 
 var hh = 6 + headerHeight + messageHeight + buttonsHeight;
+if (anyButtonHasTooltip)
+    hh += 11;
+
 var yy = room_height - hh - 2;
 draw_panel_sprite(2, yy, ww, hh, bgsprite, 0);
 
@@ -166,11 +179,16 @@ draw_set_color(textcolor);
 draw_text_ext(xx, yy, messageText, 11, ww - 4);
 yy += messageHeight;
 
+var tooltipY = yy;
+if (anyButtonHasTooltip) {
+    yy += 11;
+}
+
+
 //Draw buttons
 var xx = 5;
 
 if (ds_list_size(buttons) &gt; 0) {
-    yy += 2;
     for (var i = 0; i &lt; ds_list_size(buttons); i++) {
         var thisButton = buttons[| i];
         if (buttonW[i] + xx &gt; ww - 3) {
@@ -180,11 +198,18 @@ if (ds_list_size(buttons) &gt; 0) {
         if (do_button_iconed(xx, yy, buttonW[i], thisButton[? "text"], buttonsprite, thisButton[? "mainicon"], thisButton[? "otherIcons"]))
             if (thisButton[? "script"] &gt;= 0)
                 script_execute(thisButton[? "script"], thisButton[? "arg"]);
+        if (hovering_button_iconed(xx, yy, buttonW[i]))
+            tooltip = thisButton[? "tooltip"];
         xx += buttonW[i] + 3;
     }
+    yy += 17;
 }
 
 var xx = 5;
+if (anyButtonHasTooltip) {
+    draw_set_color(textcolor);
+    draw_text(xx, tooltipY, iif(tooltip == "", tooltipAlt, tooltip));
+}
 </string>
           </argument>
         </arguments>

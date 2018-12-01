@@ -65,6 +65,7 @@
     </scripts>
     <scripts name="Message">
       <script>scripts\do_button_iconed.gml</script>
+      <script>scripts\hovering_button_iconed.gml</script>
       <script>scripts\button_iconed_get_width.gml</script>
       <script>scripts\message_button_add.gml</script>
     </scripts>
