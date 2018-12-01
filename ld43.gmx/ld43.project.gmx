@@ -9,8 +9,12 @@
     <sprite>sprites\spr_mage0</sprite>
     <sprite>sprites\spr_mage1</sprite>
     <sprite>sprites\spr_pig</sprite>
+    <sprite>sprites\spr_ground</sprite>
+    <sprite>sprites\spr_underground</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_air0</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Utility">
@@ -42,6 +46,8 @@
     <object>objects\obj_mage0</object>
     <object>objects\obj_mage1</object>
     <object>objects\obj_pig</object>
+    <object>objects\obj_ground</object>
+    <object>objects\obj_underground</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
