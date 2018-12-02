@@ -9,6 +9,7 @@
     <sprite>sprites\spr_mage0</sprite>
     <sprite>sprites\spr_mage1</sprite>
     <sprite>sprites\spr_mage2</sprite>
+    <sprite>sprites\spr_mage3</sprite>
     <sprite>sprites\spr_farmer</sprite>
     <sprite>sprites\spr_pig</sprite>
     <sprite>sprites\spr_rat</sprite>
@@ -176,8 +177,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>
-    <room>rooms\rm_pigfarm</room>
     <room>rooms\rm_cave</room>
+    <room>rooms\rm_pigfarm</room>
   </rooms>
   <constants number="11">
     <constant name="tileWidth">24</constant>

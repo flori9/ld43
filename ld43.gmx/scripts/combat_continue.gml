@@ -84,9 +84,9 @@ with (obj_combat) {
             }
             
             if (stolenPigs > 1)
-                extraPostBattleWinText = iif(extraPostBattleWinText == "", "", " ") + "You stole the pigs of your enemy.";
+                extraPostBattleWinText += iif(extraPostBattleWinText == "", "", " ") + "You stole the pigs of your enemy.";
             else if (stolenPigs == 1)
-                extraPostBattleWinText = iif(extraPostBattleWinText == "", "", " ") + "You stole the pig of your enemy.";
+                extraPostBattleWinText += iif(extraPostBattleWinText == "", "", " ") + "You stole the pig of your enemy.";
                 
             repeat (newNumberOfPigs)
                 ds_list_add(obj_partymanager.partyMembers, "Pig");

@@ -45,7 +45,7 @@ if (thisSub == sub) {
 thisSub++;
 
 if (thisSub == sub) {
-    with (message_create_simple("The spell seems to work very well! The number of pigs in the cave is limited, but you know there's pig farm nearby. Let's steal some more pigs there!", -1, -1, -1))
+    with (message_create_simple("The spell seems to work very well! The number of pigs in the cave is limited, but you know there's a pig farm nearby. Let's steal some more pigs there!", -1, -1, -1))
         message_button_add("Walk to the Pig Farm", spr_mage2_icon, -1, scene1_do, -1, "", true);
 }
 thisSub++;

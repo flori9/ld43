@@ -28,7 +28,7 @@ thisSub++;
 
 if (thisSub == sub) {
     obj_scene2.farmerCharacter = character_get("Farmer");
-    scene_add_character_other(character_get("Pig"));
+    //scene_add_character_other(character_get("Pig"));
     scene_add_character_other(obj_scene2.farmerCharacter);
     
     with (message_create_simple("Hey! What are you doing with my pigs?", -1, -1, obj_scene2.farmerCharacter )) {
@@ -124,9 +124,7 @@ if (thisSub == sub || doAttack) {
 thisSub++;
 
 if (thisSub == sub || goToEnd) {
-    obj_scene2.currentSub = thisSub;
-
-    message_create_simple("todo", scene2_do, 1, -1 );
+    message_create_simple("", scene2_do, 1, -1 );
 }
 thisSub++;
 
