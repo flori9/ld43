@@ -30,12 +30,14 @@ drawAtY = 72;
 groundY = 72 + tileHeight;
 numberOfPositions = room_width / tileWidth;
 positionList = ds_list_create();
+deathList = ds_list_create();
 healthAnimsOldHP = ds_list_create();
 healthAnimsOldMaxHP = ds_list_create();
 healthAnimsOldOutAnim = ds_list_create();
 targetEradicated = false;
 for (var i = 0; i &lt; numberOfPositions; i++) {
     ds_list_add_list(positionList, ds_list_create());
+    ds_list_add(deathList, -1);
     
     ds_list_add(healthAnimsOldHP, -1);
     ds_list_add(healthAnimsOldMaxHP, -1);
@@ -81,6 +83,7 @@ ds_list_destroy(positionList);
 ds_list_destroy(healthAnimsOldHP);
 ds_list_destroy(healthAnimsOldMaxHP);
 ds_list_destroy(healthAnimsOldOutAnim);
+ds_list_destroy(deathList);
 
 if (surface_exists(miniSurf))
     surface_free(miniSurf);
@@ -116,6 +119,16 @@ for (var i = 0; i &lt; obj_scene.numberOfPositions; i++) {
             char[? "damageAnim"] = max(char[? "damageAnim"] - 0.05, 0);
         if (char[? "hpAnim"] &gt; 0)
             char[? "hpAnim"] = max(char[? "hpAnim"] - 0.05, 0);
+    }
+    
+    if (deathList[| i] &gt;= 0) {
+        var charToDie = deathList[| i];
+        var deathAnim = charToDie[? "deathAnim"];
+        charToDie[? "deathAnim"] += 0.1;
+        if (charToDie[? "deathAnim"] &gt;= 1) {
+            ds_map_destroy(deathList[| i]);
+            deathList[| i] = -1;
+        }
     }
 }
 </string>
@@ -157,6 +170,12 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
         maxHPToDraw = pos[? "maxHP"];
         hpAnimToDraw = pos[? "hpAnim"];
         prevHP = pos[? "prevHP"];
+    }
+    
+    if (deathList[| i] &gt;= 0) {
+        var charToDie = deathList[| i];
+        var isRotated = charToDie[? "alignment"] == alignment_other;
+        script_execute(charToDie[? "drawer"], charToDie, i, isRotated, charToDie[? "drawerarg"]);
     }
     
     if (hpToDraw &lt; 0 &amp;&amp; maxHPToDraw &lt; 0) {

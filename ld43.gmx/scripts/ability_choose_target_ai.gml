@@ -11,7 +11,7 @@ for (var i = 0; i < obj_scene.numberOfPositions; i++) {
     var chars = obj_scene.positionList[| i];
     for (var j = 0; j < ds_list_size(chars); j++) {
         var char = chars[| j];
-        if (char[? "alignment"] == alignment_you) {
+        if ((char[? "alignment"] == alignment_you && findStrat != strategySelf) || (char[? "alignment"] == alignment_other && findStrat == strategySelf)) {
             if (! foundAnyActualControllables)
                 bestFound = char;
             if (char[? "hasAbilities"]) {
@@ -21,7 +21,7 @@ for (var i = 0; i < obj_scene.numberOfPositions; i++) {
                     bestHPFound = char[? "hp"];
                 }
                 
-                if (findStrat == strategyLowestHP) {
+                if (findStrat == strategyLowestHP || findStrat == strategySelf) {
                     if (char[? "hp"] < bestHPFound) {
                         bestHPFound = char[? "hp"];
                         bestFound = char;

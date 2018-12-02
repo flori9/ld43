@@ -27,9 +27,11 @@
     </sprites>
     <sprites name="Abilities">
       <sprite>sprites\spr_flyingpig</sprite>
+      <sprite>sprites\spr_pigsurge</sprite>
       <sprite>sprites\spr_pigbloodheal</sprite>
       <sprite>sprites\spr_normalheal_start</sprite>
       <sprite>sprites\spr_pigbloodheal_drop</sprite>
+      <sprite>sprites\spr_pigsurge_drop</sprite>
       <sprite>sprites\spr_normalheal_drop</sprite>
     </sprites>
     <sprite>sprites\spr_selectionbox</sprite>
@@ -139,9 +141,11 @@
       <object>objects\par_ability</object>
       <object>objects\ability_flyingpig</object>
       <object>objects\ability_pigbloodheal</object>
+      <object>objects\ability_pigsurge</object>
       <object>objects\ability_normalheal</object>
       <object>objects\ability_pigsteal</object>
       <object>objects\obj_ability_part_pigbloodhealdrop</object>
+      <object>objects\obj_ability_part_pigsurgedrop</object>
       <object>objects\obj_ability_part_normalhealdrop</object>
     </objects>
   </objects>

@@ -4,7 +4,7 @@ dmgAmount = clamp(dmgAmount, 0, doDmgOn[? "hp"]); //defences etc.
 doDmgOn[? "hp"] -= dmgAmount;
 var defeated = false;
 if (doDmgOn[? "hp"] <= 0) {
-    scene_destroy_character(doDmgOn);
+    scene_destroy_character(doDmgOn, true);
     defeated = true;
 } else {
     doDmgOn[? "hpAnim"] = 1;

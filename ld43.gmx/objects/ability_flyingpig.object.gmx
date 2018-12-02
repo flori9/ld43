@@ -70,7 +70,7 @@ if (stage == 1) {
         pigTransform = scene_get_xtransform(pigToFlyTo);
         pigRelX = scene_get_x(pigToFlyTo) - x;
         pigRelY = scene_get_y(pigToFlyTo) - y;
-        scene_destroy_character(pigToFlyTo);
+        scene_destroy_character(pigToFlyTo, false);
         toY = y - tileHeight * 2.5;
     }
 }
