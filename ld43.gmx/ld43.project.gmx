@@ -28,7 +28,9 @@
     <sprites name="Abilities">
       <sprite>sprites\spr_flyingpig</sprite>
       <sprite>sprites\spr_pigbloodheal</sprite>
+      <sprite>sprites\spr_normalheal_start</sprite>
       <sprite>sprites\spr_pigbloodheal_drop</sprite>
+      <sprite>sprites\spr_normalheal_drop</sprite>
     </sprites>
     <sprite>sprites\spr_selectionbox</sprite>
     <sprite>sprites\spr_heart</sprite>
@@ -137,14 +139,16 @@
       <object>objects\par_ability</object>
       <object>objects\ability_flyingpig</object>
       <object>objects\ability_pigbloodheal</object>
+      <object>objects\ability_normalheal</object>
       <object>objects\ability_pigsteal</object>
       <object>objects\obj_ability_part_pigbloodhealdrop</object>
+      <object>objects\obj_ability_part_normalhealdrop</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
-  <constants number="10">
+  <constants number="11">
     <constant name="tileWidth">24</constant>
     <constant name="alignment_you">1</constant>
     <constant name="alignment_other">0</constant>
@@ -155,6 +159,7 @@
     <constant name="strategyHighestHP">1</constant>
     <constant name="strategyPigs">2</constant>
     <constant name="strategySelf">3</constant>
+    <constant name="aiPrioHeal">-1001</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

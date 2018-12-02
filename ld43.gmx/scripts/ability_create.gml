@@ -1,4 +1,4 @@
-///ability_create(text, tooltip, script, scriptarg)
+///ability_create(text, tooltip, script, scriptarg, allRequirements, aiPrio)
 var abilitymap = ds_map_create();
 abilitymap[? "name"] = argument0;
 abilitymap[? "tooltip"] = argument1;
