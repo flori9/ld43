@@ -32,7 +32,7 @@ image_speed = 0.3333;
 
 stage = 0;
 stagesub = 0;
-healMax = 10;
+healMax = 2;
 nowHealed = 0;
 </string>
           </argument>

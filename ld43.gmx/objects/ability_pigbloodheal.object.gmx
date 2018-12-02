@@ -37,6 +37,7 @@ downSpeed = 0;
 pig_alpha = 1;
 eligForHealing = -1;
 actuallyHealed = false;
+abilityHealAmount = 5;
 </string>
           </argument>
         </arguments>
@@ -101,7 +102,7 @@ if (stage == 1) {
         
         //Determine who we're actually going to heal
         eligForHealing = ds_list_create()
-        var totalHPToRegain = 8;
+        var totalHPToRegain = abilityHealAmount;
         var nothingLeftToRegain = false;
         
         for (var i = 0; i &lt; obj_scene.numberOfPositions; i++) {

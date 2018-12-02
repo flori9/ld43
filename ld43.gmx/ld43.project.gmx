@@ -46,6 +46,8 @@
     </sprites>
     <sprite>sprites\spr_selectionbox</sprite>
     <sprite>sprites\spr_heart</sprite>
+    <sprite>sprites\spr_mana</sprite>
+    <sprite>sprites\spr_mana_req</sprite>
     <sprite>sprites\spr_heart_alt</sprite>
     <sprite>sprites\spr_healthorb</sprite>
     <sprite>sprites\spr_healthbar</sprite>
@@ -103,7 +105,9 @@
       <script>scripts\characterdrawer_part_alt.gml</script>
       <script>scripts\character_get.gml</script>
       <script>scripts\scene_draw_hp.gml</script>
+      <script>scripts\scene_draw_mana.gml</script>
       <script>scripts\character_do_damage.gml</script>
+      <script>scripts\character_remove_mana.gml</script>
       <script>scripts\character_heal.gml</script>
       <script>scripts\scene_init_ownparty.gml</script>
       <scripts name="Scenes">
@@ -128,11 +132,14 @@
       <script>scripts\ability_choose_target.gml</script>
       <script>scripts\ability_choose_target_ai.gml</script>
       <script>scripts\ability_do_fromstaff_noTarget.gml</script>
+      <script>scripts\ability_pay_mana_noTarget.gml</script>
       <script>scripts\ability_do_fromstaff.gml</script>
+      <script>scripts\ability_pay_mana.gml</script>
     </scripts>
     <scripts name="Requirement">
       <script>scripts\requirement_create.gml</script>
       <script>scripts\requirement_set_pigs.gml</script>
+      <script>scripts\requirement_set_mana.gml</script>
     </scripts>
     <scripts name="Combat">
       <script>scripts\combat_continue.gml</script>

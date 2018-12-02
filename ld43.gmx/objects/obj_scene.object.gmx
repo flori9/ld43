@@ -34,6 +34,11 @@ deathList = ds_list_create();
 healthAnimsOldHP = ds_list_create();
 healthAnimsOldMaxHP = ds_list_create();
 healthAnimsOldOutAnim = ds_list_create();
+
+manaAnimsOldHP = ds_list_create();
+manaAnimsOldMaxHP = ds_list_create();
+manaAnimsOldOutAnim = ds_list_create();
+
 targetEradicated = false;
 for (var i = 0; i &lt; numberOfPositions; i++) {
     ds_list_add_list(positionList, ds_list_create());
@@ -42,6 +47,10 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
     ds_list_add(healthAnimsOldHP, -1);
     ds_list_add(healthAnimsOldMaxHP, -1);
     ds_list_add(healthAnimsOldOutAnim, 0);
+    
+    ds_list_add(manaAnimsOldHP, -1);
+    ds_list_add(manaAnimsOldMaxHP, -1);
+    ds_list_add(manaAnimsOldOutAnim, 0);
 }
 
 /*scene_add_character_you(character_get("Pig"));
@@ -119,6 +128,8 @@ for (var i = 0; i &lt; obj_scene.numberOfPositions; i++) {
             char[? "damageAnim"] = max(char[? "damageAnim"] - 0.05, 0);
         if (char[? "hpAnim"] &gt; 0)
             char[? "hpAnim"] = max(char[? "hpAnim"] - 0.05, 0);
+        if (char[? "manaAnim"] &gt; 0)
+            char[? "manaAnim"] = max(char[? "manaAnim"] - 0.05, 0);
     }
     
     if (deathList[| i] &gt;= 0) {
@@ -160,6 +171,10 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
     var hpAnimToDraw = 0;
     var prevHP = -1;
     
+    var manaToDraw = -1, maxManaToDraw = -1;
+    var manaAnimToDraw = 0;
+    var prevMana = -1;
+    
     for (var j = 0; j &lt; ds_list_size(thisPosList); j++) {
         var pos = thisPosList[| j];
         var isRotated = pos[? "alignment"] == alignment_other;
@@ -170,6 +185,11 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
         maxHPToDraw = pos[? "maxHP"];
         hpAnimToDraw = pos[? "hpAnim"];
         prevHP = pos[? "prevHP"];
+        
+        manaToDraw = pos[? "mana"];
+        maxManaToDraw = pos[? "maxMana"];
+        manaAnimToDraw = pos[? "manaAnim"];
+        prevMana = pos[? "prevMana"];
     }
     
     if (deathList[| i] &gt;= 0) {
@@ -190,8 +210,23 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
         healthAnimsOldMaxHP[| i] = maxHPToDraw;
     }
     
+    if (hpToDraw &lt; 0 &amp;&amp; maxHPToDraw &lt; 0) || (! instance_exists(obj_combat)) {
+        manaAnimsOldOutAnim[| i] = max(0, manaAnimsOldOutAnim[| i] - 0.1);
+        manaToDraw = manaAnimsOldHP[| i];
+        maxManaToDraw = manaAnimsOldMaxHP[| i];
+        prevMana = manaToDraw;
+    }
+    else {
+        manaAnimsOldOutAnim[| i] = min(1, manaAnimsOldOutAnim[| i] + 0.1);
+        manaAnimsOldHP[| i] = manaToDraw;
+        manaAnimsOldMaxHP[| i] = maxManaToDraw;
+    }
+    
     if (healthAnimsOldOutAnim[| i] &gt; 0)
             scene_draw_hp(hpToDraw, maxHPToDraw, i, healthAnimsOldOutAnim[| i], hpAnimToDraw, prevHP);
+            
+    if (manaAnimsOldOutAnim[| i] &gt; 0 &amp;&amp; maxManaToDraw &gt; 0)
+            scene_draw_mana(manaToDraw, maxManaToDraw, i, manaAnimsOldOutAnim[| i], manaAnimToDraw, prevMana);
 }
 </string>
           </argument>

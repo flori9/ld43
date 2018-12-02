@@ -9,7 +9,7 @@ switch (argument0)
     case "Ezobur":
         return character_create_ext(spr_mage3, 0, 19, 11,
             "Ezobur", ", the Levitator", spr_mage3_icon,
-            9, abilities_create_ezobur(), "he", 12, 16);
+            6, abilities_create_ezobur(), "he", 12, 16);
         break;
     case "Runar":
         return character_create_ext(spr_mage0, 0, 19, 11,
@@ -23,9 +23,12 @@ switch (argument0)
         break;
     case "Greatbeard":
        // abilities_create_greatbeard
-       return character_create_ext(spr_mage4, 0, 20, 10,
-            "Greatbeard", ", the Restorer", spr_mage4_icon,
-            12, ds_list_create(), "he", 12, 16);
+       var greatbeard = character_create_ext(spr_mage4, 0, 20, 10,
+            "Greatbeard", ", the Green", spr_mage4_icon,
+            8, abilities_create_greatbeard(), "he", 12, 16);
+        greatbeard[? "mana"] = 3;
+        greatbeard[? "maxMana"] = 3;
+        return greatbeard;
         break;
     case "Farmer":
         return character_create_ext(spr_farmer, 0, 20, 8,

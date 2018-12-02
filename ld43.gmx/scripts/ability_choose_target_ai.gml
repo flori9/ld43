@@ -18,10 +18,17 @@ for (var i = 0; i < obj_scene.numberOfPositions; i++) {
                 if (!foundAnyActualControllables) {
                     bestFound = char;
                     foundAnyActualControllables = true;
-                    bestHPFound = char[? "hp"];
+                    if (findStrat != strategySelf)
+                        bestHPFound = char[? "hp"];
                 }
                 
-                if (findStrat == strategyLowestHP || findStrat == strategySelf) {
+                if (findStrat == strategySelf) {
+                    if (char[? "maxHP"] - char[? "hp"] > bestHPFound) {
+                        bestHPFound = char[? "maxHP"] - char[? "hp"];
+                        bestFound = char;
+                    }
+                }
+                else if (findStrat == strategyLowestHP) {
                     if (char[? "hp"] < bestHPFound) {
                         bestHPFound = char[? "hp"];
                         bestFound = char;

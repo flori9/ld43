@@ -21,5 +21,10 @@ charmap[? "prevHP"] = argument3;
 charmap[? "centerx"] = argument5;
 charmap[? "centery"] = argument6;
 
+charmap[? "mana"] = -1;
+charmap[? "maxMana"] = -1;
+charmap[? "manaAnim"] = 0;
+charmap[? "prevMana"] = 0;
+
 charmap[? "waitText"] = charmap[? "name"] + " waited.";
 return charmap;

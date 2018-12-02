@@ -8,7 +8,7 @@ if (doDmgOn[? "hp"] <= 0) {
     defeated = true;
 } else {
     doDmgOn[? "hpAnim"] = 1;
-    doDmgOn[? "previousHP"] = doDmgOn[? "hp"] + dmgAmount;
+    doDmgOn[? "prevHP"] = doDmgOn[? "hp"] + dmgAmount;
 }
 
 return array(dmgAmount, defeated);
