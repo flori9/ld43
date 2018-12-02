@@ -19,9 +19,17 @@ switch (argument0)
     case "Farmer":
         return character_create_ext(spr_farmer, 0, 20, 8,
             "Paulo", ", the Pig Farmer", spr_farmer_icon,
-            5, ds_list_create(), "he", 12, 15);
+            5, abilities_create_pigfarmer(), "he", 12, 15);
         break;
         
     case "Pig":
+    case "pig":
         return character_create(spr_pig, 0, "pig", 3, "the pig", 8, 16);
+    case "Rat":
+    case "rat":
+        var theStupidRat =  character_create_ext(spr_rat, 0, 20, 10,
+            "the rat", "", spr_rat_icon,
+            2, ds_list_create(), "it", 10, 16);
+        theStupidRat[? "waitText"] = "The rat squeaked.";
+        return theStupidRat;
 }

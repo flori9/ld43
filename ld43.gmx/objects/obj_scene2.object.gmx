@@ -25,17 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Init combat
-currentCombatX = -1;
-combatCharacter = -1;
+            <string>///Init scene
+instance_create(0, 0, obj_scene);
 
-postBattleScript = -1;
-postBattleScriptArg = -1;
-postBattleWinText = "You won the battle!";
-postBattleLoseText = "You have been defeated!";
+scene_add_character_other(character_get("Pig"));
+scene_add_character_other(character_get("Pig"));
+scene_add_character_other(character_get("Pig"));
 
-combat_continue();
+scene_init_ownparty();
 
+currentSub = 0;
+
+scene2_do(-1);
 </string>
           </argument>
         </arguments>

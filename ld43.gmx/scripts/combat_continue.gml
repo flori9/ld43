@@ -1,5 +1,107 @@
 ///combat_continue()
 with (obj_combat) {
+    var selfCharacters = 0, otherCharacters = 0;
+
+    for (var i = 0; i < obj_scene.numberOfPositions; i++) {
+        var chars = obj_scene.positionList[| i];
+        for (var j = 0; j < ds_list_size(chars); j++) {
+            var char = chars[| j];
+            if (char[? "hasAbilities"]) {
+                if (char[? "alignment"] == alignment_you)
+                    selfCharacters++;
+                else if (char[? "alignment"] == alignment_other)
+                    otherCharacters++;
+            }
+        }
+    }
+    
+    if (selfCharacters <= 0) {
+        //Defeat!!!
+        message_create_simple(postBattleLoseText, -1, -1, -1);
+        instance_destroy();
+        exit;
+    } else if (otherCharacters <= 0) {
+        //Win!!!
+        var extraPostBattleWinText = "";
+        /*if (extraPostBattleWinText != "")*/ {
+            if (postBattleWinText != "")
+                postBattleWinText += "#";
+            
+            var healedAnyOne = false;
+                
+            var healedOnly = "";
+            var newNumberOfPigs = 0;
+            var stolenPigs = 0;
+            var charactersInScene = ds_list_create();
+            for (var i = 0; i < obj_scene.numberOfPositions; i++) {
+                var chars = obj_scene.positionList[| i];
+                for (var j = 0; j < ds_list_size(chars); j++) {
+                    var char = chars[| j];
+                    if (char[? "alignment"] == alignment_you) {
+                        if (char[? "hp"] < char[? "maxHP"]) {
+                            healedAnyOne = true;
+                            if (healedOnly == "" && char[? "name"] != "the pig")
+                                healedOnly = char[? "name"];
+                            else
+                                healedOnly = "Everybody";
+                        }
+                    
+                        char[? "hp"] = char[? "maxHP"];
+                        if (char[? "identifier"] == "pig")
+                            newNumberOfPigs += 1;
+                        else
+                            ds_list_add(charactersInScene, char[? "identifier"]);
+                    } else {
+                        if (char[? "identifier"] == "pig") {
+                            scene_destroy_character(char, false);
+                            scene_add_character_you(character_get("Pig"));
+                            newNumberOfPigs += 1;
+                            stolenPigs += 1;
+                        }
+                    }
+                }
+            }
+            
+            var recoveredAnyOne = false;
+            
+            for (var i = ds_list_size(obj_partymanager.partyMembers) - 1; i >= 0; i--) {
+                if (obj_partymanager.partyMembers[| i] == "Pig")
+                    ds_list_delete(obj_partymanager.partyMembers, i);
+                else {
+                    if (ds_list_find_index(charactersInScene, obj_partymanager.partyMembers[| i]) == -1) {
+                        scene_add_character_you(character_get(obj_partymanager.partyMembers[| i]));
+                        recoveredAnyOne = true;
+                    }
+                }
+            }
+            
+            if (healedAnyOne && recoveredAnyOne)
+                extraPostBattleWinText = "Your fallen party members have recovered, and everybody has been healed.";
+            else if (recoveredAnyOne)
+                extraPostBattleWinText = "Your fallen party members have recovered.";
+            else if (healedAnyOne) {
+                extraPostBattleWinText = string_capitalize_first(healedOnly) + " has been healed.";
+            }
+            
+            if (stolenPigs > 1)
+                extraPostBattleWinText = iif(extraPostBattleWinText == "", "", " ") + "You stole the pigs of your enemy.";
+            else if (stolenPigs == 1)
+                extraPostBattleWinText = iif(extraPostBattleWinText == "", "", " ") + "You stole the pig of your enemy.";
+                
+            repeat (newNumberOfPigs)
+                ds_list_add(obj_partymanager.partyMembers, "Pig");
+               
+            postBattleWinText += extraPostBattleWinText;
+        }
+        
+        if (postBattleWinText == "")
+            script_execute(postBattleScript, postBattleScriptArg);
+        else
+            message_create_simple(postBattleWinText, postBattleScript, postBattleScriptArg, -1);
+        instance_destroy();
+        exit;
+    }
+
     var firstCombatX = currentCombatX;
     var wrappedOnce = false;
     var combatJ = 0;

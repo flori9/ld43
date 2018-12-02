@@ -11,7 +11,11 @@
     <sprite>sprites\spr_mage2</sprite>
     <sprite>sprites\spr_farmer</sprite>
     <sprite>sprites\spr_pig</sprite>
+    <sprite>sprites\spr_rat</sprite>
     <sprite>sprites\spr_ground</sprite>
+    <sprite>sprites\spr_caveground</sprite>
+    <sprite>sprites\spr_caveoverground</sprite>
+    <sprite>sprites\spr_caveunderground</sprite>
     <sprite>sprites\spr_underground</sprite>
     <sprites name="UI">
       <sprite>sprites\spr_message</sprite>
@@ -22,6 +26,7 @@
         <sprite>sprites\spr_mage1_icon</sprite>
         <sprite>sprites\spr_mage2_icon</sprite>
         <sprite>sprites\spr_pig_icon</sprite>
+        <sprite>sprites\spr_rat_icon</sprite>
         <sprite>sprites\spr_pig_icon_cost</sprite>
       </sprites>
     </sprites>
@@ -33,6 +38,7 @@
       <sprite>sprites\spr_pigbloodheal_drop</sprite>
       <sprite>sprites\spr_pigsurge_drop</sprite>
       <sprite>sprites\spr_normalheal_drop</sprite>
+      <sprite>sprites\spr_ability_magicbolt</sprite>
     </sprites>
     <sprite>sprites\spr_selectionbox</sprite>
     <sprite>sprites\spr_heart</sprite>
@@ -43,6 +49,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_air0</background>
+    <background>background\bg_cave</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -79,7 +86,9 @@
       <script>scripts\scene_find_identifier.gml</script>
       <script>scripts\scene_count_identifier.gml</script>
       <script>scripts\scene_find_empty.gml</script>
+      <script>scripts\scene_find_emptynum.gml</script>
       <script>scripts\scene_destroy_character.gml</script>
+      <script>scripts\scene_clear.gml</script>
       <script>scripts\scene_get_x.gml</script>
       <script>scripts\scene_get_y.gml</script>
       <script>scripts\scene_get_xtransform.gml</script>
@@ -92,16 +101,23 @@
       <script>scripts\scene_draw_hp.gml</script>
       <script>scripts\character_do_damage.gml</script>
       <script>scripts\character_heal.gml</script>
+      <script>scripts\scene_init_ownparty.gml</script>
+      <scripts name="Scenes">
+        <script>scripts\scene1_do.gml</script>
+        <script>scripts\scene2_do.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Message">
       <script>scripts\do_button_iconed.gml</script>
       <script>scripts\hovering_button_iconed.gml</script>
       <script>scripts\button_iconed_get_width.gml</script>
       <script>scripts\message_button_add.gml</script>
+      <script>scripts\message_create_simple.gml</script>
     </scripts>
     <scripts name="Abilities">
       <script>scripts\abilities_create_inugor.gml</script>
       <script>scripts\abilities_create_runar.gml</script>
+      <script>scripts\abilities_create_pigfarmer.gml</script>
       <script>scripts\ability_create.gml</script>
       <script>scripts\ability_choose_target.gml</script>
       <script>scripts\ability_choose_target_ai.gml</script>
@@ -132,6 +148,9 @@
   <objects name="objects">
     <object>objects\obj_ground</object>
     <object>objects\obj_underground</object>
+    <object>objects\obj_caveground</object>
+    <object>objects\obj_caveunderground</object>
+    <object>objects\obj_caveoverground</object>
     <object>objects\obj_farmer</object>
     <object>objects\obj_message</object>
     <object>objects\obj_scene</object>
@@ -142,15 +161,23 @@
       <object>objects\ability_flyingpig</object>
       <object>objects\ability_pigbloodheal</object>
       <object>objects\ability_pigsurge</object>
+      <object>objects\ability_magicbolt</object>
       <object>objects\ability_normalheal</object>
       <object>objects\ability_pigsteal</object>
       <object>objects\obj_ability_part_pigbloodhealdrop</object>
       <object>objects\obj_ability_part_pigsurgedrop</object>
       <object>objects\obj_ability_part_normalhealdrop</object>
     </objects>
+    <object>objects\obj_partymanager</object>
+    <objects name="Scenes">
+      <object>objects\obj_scene1</object>
+      <object>objects\obj_scene2</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\room3</room>
+    <room>rooms\rm_pigfarm</room>
+    <room>rooms\rm_cave</room>
   </rooms>
   <constants number="11">
     <constant name="tileWidth">24</constant>

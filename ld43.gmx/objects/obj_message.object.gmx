@@ -174,9 +174,9 @@ if (headerInfo &gt;= 0) {
     draw_set_font(fnt_medium);
     draw_set_color(textcolor);
     draw_sprite(headerInfo[? "portrait"], 0, xx, yy - 1);
-    draw_text(xx + 9, yy, headerInfo[? "name"]);
+    draw_text(xx + 9, yy, string_capitalize_first(headerInfo[? "name"]));
     if (ds_map_exists(headerInfo, "title") &amp;&amp; headerInfo[? "title"] != "") {
-        var nameWidth = string_width(headerInfo[? "name"]);
+        var nameWidth = string_width(string_capitalize_first(headerInfo[? "name"]));
         draw_set_color(textcolorlight);
         draw_text(xx + 9 + nameWidth, yy, headerInfo[? "title"]);
         draw_set_color(textcolor);

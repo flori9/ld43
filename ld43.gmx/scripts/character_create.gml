@@ -20,4 +20,6 @@ charmap[? "prevHP"] = argument3;
 
 charmap[? "centerx"] = argument5;
 charmap[? "centery"] = argument6;
+
+charmap[? "waitText"] = charmap[? "name"] + " waited.";
 return charmap;

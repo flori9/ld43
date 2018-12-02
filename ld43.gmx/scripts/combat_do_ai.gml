@@ -28,5 +28,5 @@ for (var i = ds_list_size(abilityList) - 1; i >= 0; i--) {
 if (bestFoundAbility >= 0) {
     script_execute(bestFoundAbility[? "script"], bestFoundAbility[? "scriptarg"]);
 } else {
-    combat_wait(char[? "name"] + " waited.");
+    combat_wait(char[? "waitText"]);
 }

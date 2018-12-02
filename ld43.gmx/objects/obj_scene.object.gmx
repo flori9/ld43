@@ -44,7 +44,7 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
     ds_list_add(healthAnimsOldOutAnim, 0);
 }
 
-scene_add_character_you(character_get("Pig"));
+/*scene_add_character_you(character_get("Pig"));
 scene_add_character_you(character_get("Pig"));
 scene_add_character_you(character_get("Pig"));
 scene_add_character_you(character_get("Inugor"));
@@ -53,7 +53,7 @@ scene_add_character_other(character_get("Pig"));
 scene_add_character_other(character_get("Pig"));
 scene_add_character_other(character_get("Pig"));
 scene_add_character_other(character_get("Farmer"));
-scene_add_character_other(character_get("Runar"));
+scene_add_character_other(character_get("Runar"));*/
 
 miniSurf = -1;
 </string>
@@ -178,7 +178,7 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
         script_execute(charToDie[? "drawer"], charToDie, i, isRotated, charToDie[? "drawerarg"]);
     }
     
-    if (hpToDraw &lt; 0 &amp;&amp; maxHPToDraw &lt; 0) {
+    if (hpToDraw &lt; 0 &amp;&amp; maxHPToDraw &lt; 0) || (! instance_exists(obj_combat)) {
         healthAnimsOldOutAnim[| i] = max(0, healthAnimsOldOutAnim[| i] - 0.1);
         hpToDraw = healthAnimsOldHP[| i];
         maxHPToDraw = healthAnimsOldMaxHP[| i];
@@ -191,7 +191,7 @@ for (var i = 0; i &lt; numberOfPositions; i++) {
     }
     
     if (healthAnimsOldOutAnim[| i] &gt; 0)
-        scene_draw_hp(hpToDraw, maxHPToDraw, i, healthAnimsOldOutAnim[| i], hpAnimToDraw, prevHP);
+            scene_draw_hp(hpToDraw, maxHPToDraw, i, healthAnimsOldOutAnim[| i], hpAnimToDraw, prevHP);
 }
 </string>
           </argument>

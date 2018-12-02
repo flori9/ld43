@@ -25,8 +25,8 @@ with (msg) {
         message_button_add(thisAbility[? "name"], -1, costList /*cost*/, thisAbility[? "script"], thisAbility[? "scriptarg"], tooltipText, requirementsOK);
     }
     
-    if (char[? "alignment"] == alignment_you)
-        message_button_add("Wait", -1, -1 /*cost*/, combat_continue_witharg, -1, "Skip a turn.", true);
-    else
-        message_button_add("Wait", -1, -1 /*cost*/, combat_wait, char[? "name"] + " waited.", "Skip a turn.", true);
+    //if (char[? "alignment"] == alignment_you)
+    //    message_button_add("Wait", -1, -1 /*cost*/, combat_continue_witharg, -1, "Skip a turn.", true);
+    //else
+    message_button_add("Wait", -1, -1 /*cost*/, combat_wait, char[? "name"] + " waited.", "Skip a turn.", true);
 }
