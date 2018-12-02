@@ -6,6 +6,14 @@ switch (argument0)
             "Inugor", ", a Young Dark Mage", spr_mage2_icon,
             7, abilities_create_inugor(), "he", 12, 16);
         break;
+    case "Povatrix":
+        var povatrix = character_create_ext(spr_mage5, 0, 19, 11,
+            "Povatrix", ", the Pigcaller", spr_mage2_icon,
+            5, abilities_create_povatrix(), "he", 12, 16);
+        povatrix[? "mana"] = 0;
+        povatrix[? "maxMana"] = 2;
+        return povatrix;
+        break;
     case "Ezobur":
         return character_create_ext(spr_mage3, 0, 19, 11,
             "Ezobur", ", the Levitator", spr_mage3_icon,

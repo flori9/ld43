@@ -29,11 +29,16 @@
 instance_create(0, 0, obj_scene);
 
 scene_add_character_other(character_get("Pig"));
-scene_add_character_other(character_get("Ezobur"));
+//scene_add_character_other(character_get("Ezobur"));
 scene_add_character_other(character_get("Pig"));
-scene_add_character_you(character_get("Greatbeard"));
+scene_add_character_other(character_get("Pig"));
+scene_add_character_you(character_get("Povatrix"));
+scene_add_character_other(character_get("Greatbeard"));
 
-scene_add_character_you(character_get("Farmer"));
+repeat (4)
+scene_add_character_you(character_get("Pig"));
+
+//scene_add_character_you(character_get("Farmer"));
 
 scene_init_ownparty();
 

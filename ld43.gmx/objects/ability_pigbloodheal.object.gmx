@@ -166,9 +166,9 @@ else if (stage == 2) {
         xstart = x;
         
         if (ds_list_size(eligForHealing) &gt; 0)
-            combat_show_result_message(fromCharacter[? "name"] + " healed their party with pig blood for " + string(ds_list_size(eligForHealing)) + " HP.", fromCharacter);
+            combat_show_result_message(fromCharacter[? "name"] + " healed their team with pig blood for " + string(ds_list_size(eligForHealing)) + " HP.", fromCharacter);
         else
-            combat_show_result_message(fromCharacter[? "name"] + " tried to heal their party with pig blood, but nobody was wounded!", fromCharacter);
+            combat_show_result_message(fromCharacter[? "name"] + " tried to heal their team with pig blood, but nobody was wounded!", fromCharacter);
     }
 }
 </string>

@@ -45,5 +45,12 @@ if (reqs[? "otherPigs"] > 0) {
     }
 }
 
+if (reqs[? "space"] > 0) {
+    if (scene_find_emptynum() < reqs[? "space"]) {
+        if (cannotUseExplainer != "") cannotUseExplainer += " ";
+        cannotUseExplainer += "There's not enough space to cast this!";
+        requirementsOK = false;
+    }
+}
 
 return array(requirementsOK, costList, cannotUseExplainer);

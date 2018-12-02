@@ -1,6 +1,6 @@
 ///scene_draw_mana(hpToDraw, maxHPToDraw, pos, anim, anim2, prevHP)
 var hpToDraw = argument0, maxHPToDraw = argument1, i = argument2, anim = argument3, anim2 = argument4, prevHP = argument5;
-var transformX = i * tileWidth + 1, transformY = groundY + 13;
+var transformX = i * tileWidth + 1, transformY = groundY + 14;
 
 if (anim < 1) {
     if (! surface_exists(miniSurf)) {
@@ -26,6 +26,6 @@ if (anim < 1) {
     surface_reset_target();
     
     draw_set_alpha(anim);
-    draw_surface(miniSurf, i * tileWidth + 1, groundY + 13/* + round((1 - anim) * 5)*/);
+    draw_surface(miniSurf, i * tileWidth + 1, groundY + 14/* + round((1 - anim) * 5)*/);
     draw_set_alpha(1);
 }

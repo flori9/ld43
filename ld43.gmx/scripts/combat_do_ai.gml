@@ -29,12 +29,12 @@ for (var i = ds_list_size(abilityList) - 1; i >= 0; i--) {
             for (var k = 0; k < obj_scene.numberOfPositions; k++) {
                 var chars = obj_scene.positionList[| k];
                 for (var j = 0; j < ds_list_size(chars); j++) {
-                    var char = chars[| j];
-                    if (char[? "alignment"] == alig) {
-                        if (char[? "hp"] < char[? "maxHP"]) {
+                    var ochar = chars[| j];
+                    if (ochar[? "alignment"] == alig) {
+                        if (ochar[? "hp"] < char[? "maxHP"]) {
                             charsToRestore += 1;
-                            totalHPToRestore += char[? "maxHP"] - char[? "hp"];
-                            maxHPToRestore = max(char[? "maxHP"] - char[? "hp"], maxHPToRestore);
+                            totalHPToRestore += ochar[? "maxHP"] - ochar[? "hp"];
+                            maxHPToRestore = max(ochar[? "maxHP"] - ochar[? "hp"], maxHPToRestore);
                         }
                     }
                 }
@@ -42,9 +42,12 @@ for (var i = ds_list_size(abilityList) - 1; i >= 0; i--) {
             
             if (finalPrio == aiPrioHeal && maxHPToRestore > 0)
                 finalPrio = maxHPToRestore;
-                
+            else if (finalPrio == aiPrioHeal)
+                finalPrio = -1000000;
             if (finalPrio == aiPrioHealParty && totalHPToRestore > 0)
                 finalPrio = totalHPToRestore - 1;
+            else if (finalPrio == aiPrioHealParty)
+                finalPrio = -1000000;
         }
         
         if (finalPrio > bestFoundPrio) {

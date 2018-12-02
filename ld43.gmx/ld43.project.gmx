@@ -11,6 +11,7 @@
     <sprite>sprites\spr_mage2</sprite>
     <sprite>sprites\spr_mage3</sprite>
     <sprite>sprites\spr_mage4</sprite>
+    <sprite>sprites\spr_mage5</sprite>
     <sprite>sprites\spr_farmer</sprite>
     <sprite>sprites\spr_pig</sprite>
     <sprite>sprites\spr_rat</sprite>
@@ -43,6 +44,7 @@
       <sprite>sprites\spr_pigsurge_drop</sprite>
       <sprite>sprites\spr_normalheal_drop</sprite>
       <sprite>sprites\spr_ability_magicbolt</sprite>
+      <sprite>sprites\spr_ability_pigbolt</sprite>
     </sprites>
     <sprite>sprites\spr_selectionbox</sprite>
     <sprite>sprites\spr_heart</sprite>
@@ -127,6 +129,7 @@
       <script>scripts\abilities_create_runar.gml</script>
       <script>scripts\abilities_create_ezobur.gml</script>
       <script>scripts\abilities_create_greatbeard.gml</script>
+      <script>scripts\abilities_create_povatrix.gml</script>
       <script>scripts\abilities_create_pigfarmer.gml</script>
       <script>scripts\ability_create.gml</script>
       <script>scripts\ability_choose_target.gml</script>
@@ -135,11 +138,13 @@
       <script>scripts\ability_pay_mana_noTarget.gml</script>
       <script>scripts\ability_do_fromstaff.gml</script>
       <script>scripts\ability_pay_mana.gml</script>
+      <script>scripts\abilities_add_magicbolt.gml</script>
     </scripts>
     <scripts name="Requirement">
       <script>scripts\requirement_create.gml</script>
       <script>scripts\requirement_set_pigs.gml</script>
       <script>scripts\requirement_set_mana.gml</script>
+      <script>scripts\requirement_add_space.gml</script>
     </scripts>
     <scripts name="Combat">
       <script>scripts\combat_continue.gml</script>
@@ -178,8 +183,10 @@
       <object>objects\ability_pigbloodheal</object>
       <object>objects\ability_pigsurge</object>
       <object>objects\ability_magicbolt</object>
+      <object>objects\ability_pigbolt</object>
       <object>objects\ability_normalheal</object>
       <object>objects\ability_pigsteal</object>
+      <object>objects\ability_callpig</object>
       <object>objects\obj_ability_part_pigbloodhealdrop</object>
       <object>objects\obj_ability_part_pigsurgedrop</object>
       <object>objects\obj_ability_part_normalhealdrop</object>
