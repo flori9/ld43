@@ -101,10 +101,11 @@ else if (stage == 2) {
         
         with (instance_create(x + pigRelX + mean(5, 11), y + pigRelY + mean(14, 18), ability_pigpoison_sub)) {
             speed = 4;
-            targetx = scene_get_x(other.target) + other.target[? "centerx"];
-            targety = scene_get_y(other.target) + other.target[? "centery"];
+            targetx = scene_get_centerx(other.target);
+            targety = scene_get_centery(other.target);
             targety2 = scene_get_y(other.target) - 7 - otherPigPoisonsOnTarget * 11;
             target = other.target;
+            protectTarget = target;
         }
             
         actuallyDoneDamage = true;

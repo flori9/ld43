@@ -45,6 +45,7 @@
       <sprite>sprites\spr_pigsurge</sprite>
       <sprite>sprites\spr_pigpoison</sprite>
       <sprite>sprites\spr_pigpoison_orb</sprite>
+      <sprite>sprites\spr_pigpoison_minipoison</sprite>
       <sprite>sprites\spr_pigbloodheal</sprite>
       <sprite>sprites\spr_normalheal_start</sprite>
       <sprite>sprites\spr_pigbloodheal_drop</sprite>
@@ -109,7 +110,9 @@
       <script>scripts\scene_destroy_character.gml</script>
       <script>scripts\scene_clear.gml</script>
       <script>scripts\scene_get_x.gml</script>
+      <script>scripts\scene_get_centerx.gml</script>
       <script>scripts\scene_get_y.gml</script>
+      <script>scripts\scene_get_centery.gml</script>
       <script>scripts\scene_get_xtransform.gml</script>
       <script>scripts\character_create.gml</script>
       <script>scripts\character_create_ext.gml</script>
@@ -212,6 +215,7 @@
       <object>objects\obj_ability_part_pigsurgedrop</object>
       <object>objects\ability_pigpoison_sub</object>
       <object>objects\obj_ability_part_normalhealdrop</object>
+      <object>objects\obj_ability_pigpoison_minipoison</object>
     </objects>
     <object>objects\obj_partymanager</object>
     <objects name="Scenes">

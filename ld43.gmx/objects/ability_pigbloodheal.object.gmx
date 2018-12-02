@@ -144,8 +144,8 @@ else if (stage == 2) {
                 with (instance_create(x + pigRelX + irandom_range(5, 11), y + pigRelY + irandom_range(14, 18), obj_ability_part_pigbloodhealdrop)) {
                     speed = 4;
                     var target = ds_list_any(other.eligForHealing);
-                    targetx = scene_get_x(target) + target[? "centerx"];
-                    targety = scene_get_y(target) + target[? "centery"];
+                    targetx = scene_get_centerx(target);
+                    targety = scene_get_centery(target);
                 }
             }
         }

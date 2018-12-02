@@ -64,8 +64,8 @@ if (stage == 1) {
         if (nowHealed &lt; healMax &amp;&amp; target[? "hp"] + nowHealed &lt; target[? "maxHP"]) {
             with (instance_create(x, y, obj_ability_part_normalhealdrop)) {
                 targetInst = other.target;
-                targetx = scene_get_x(other.target) + other.target[? "centerx"];
-                targety = scene_get_y(other.target) + other.target[? "centery"];
+                targetx = scene_get_centerx(other.target);
+                targety = scene_get_centery(other.target);
             }
             
             nowHealed += 1;

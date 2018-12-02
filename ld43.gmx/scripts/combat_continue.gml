@@ -6,6 +6,7 @@ with (obj_combat) {
         var chars = obj_scene.positionList[| i];
         for (var j = 0; j < ds_list_size(chars); j++) {
             var char = chars[| j];
+            
             if (char[? "hasAbilities"]) {
                 if (char[? "alignment"] == alignment_you)
                     selfCharacters++;
@@ -120,6 +121,21 @@ with (obj_combat) {
         var posList = obj_scene.positionList[| currentCombatX];
         if (ds_list_size(posList) > 0) {
             combatCharacter = posList[| 0];
+            
+            //Check for poison on this character
+            with (ability_pigpoison_sub) {
+                if (protectTarget == other.combatCharacter) {
+                    var thisPoison = id;
+                    with (instance_create(x, y, obj_ability_pigpoison_minipoison))
+                        targety = thisPoison.targety;
+                        
+                    var ret = character_do_damage(other.combatCharacter, 1);
+                    if (ret[1]) {
+                        combat_show_result_message(other.combatCharacter[? "name"] + " has been killed by poison!", -1);
+                        exit;
+                    }
+                }
+            }
             
             if (combatCharacter[? "hasAbilities"]) {
                 break;

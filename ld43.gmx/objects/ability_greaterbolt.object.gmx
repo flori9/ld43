@@ -61,8 +61,8 @@ damageMessage = "";
             <kind>1</kind>
             <string>///Fly target
 if (stage == 1) {
-    var targetx = scene_get_x(target) + target[? "centerx"];
-    var targety = scene_get_y(target) + target[? "centery"];
+    var targetx = scene_get_centerx(target);
+    var targety = scene_get_centery(target);
     
     move_towards_point(targetx, targety, 8);
     if (hspeed &gt; 0)
@@ -71,6 +71,9 @@ if (stage == 1) {
         image_xscale = -1;
 
     if (point_distance(x, y, targetx, targety) &lt;= speed) {
+        x = targetx;
+        y = targety;
+    
         var targetName = target[? "name"];
         targetHeSheIt = target[? "heSheIt"];
         
