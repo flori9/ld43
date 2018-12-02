@@ -10,6 +10,7 @@
     <sprite>sprites\spr_mage1</sprite>
     <sprite>sprites\spr_mage2</sprite>
     <sprite>sprites\spr_mage3</sprite>
+    <sprite>sprites\spr_mage4</sprite>
     <sprite>sprites\spr_farmer</sprite>
     <sprite>sprites\spr_pig</sprite>
     <sprite>sprites\spr_rat</sprite>
@@ -26,6 +27,8 @@
         <sprite>sprites\spr_mage0_icon</sprite>
         <sprite>sprites\spr_mage1_icon</sprite>
         <sprite>sprites\spr_mage2_icon</sprite>
+        <sprite>sprites\spr_mage3_icon</sprite>
+        <sprite>sprites\spr_mage4_icon</sprite>
         <sprite>sprites\spr_pig_icon</sprite>
         <sprite>sprites\spr_rat_icon</sprite>
         <sprite>sprites\spr_pig_icon_cost</sprite>
@@ -118,6 +121,8 @@
     <scripts name="Abilities">
       <script>scripts\abilities_create_inugor.gml</script>
       <script>scripts\abilities_create_runar.gml</script>
+      <script>scripts\abilities_create_ezobur.gml</script>
+      <script>scripts\abilities_create_greatbeard.gml</script>
       <script>scripts\abilities_create_pigfarmer.gml</script>
       <script>scripts\ability_create.gml</script>
       <script>scripts\ability_choose_target.gml</script>
@@ -137,6 +142,9 @@
       <script>scripts\combat_init_ability_choice_message.gml</script>
       <script>scripts\combat_do_ai.gml</script>
       <script>scripts\combat_check_reqs.gml</script>
+    </scripts>
+    <scripts name="Arena">
+      <script>scripts\arena_init_firstbattle.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -173,14 +181,16 @@
     <objects name="Scenes">
       <object>objects\obj_scene1</object>
       <object>objects\obj_scene2</object>
+      <object>objects\obj_arena</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room3</room>
+    <room>rooms\rm_arena</room>
     <room>rooms\rm_cave</room>
     <room>rooms\rm_pigfarm</room>
   </rooms>
-  <constants number="11">
+  <constants number="12">
     <constant name="tileWidth">24</constant>
     <constant name="alignment_you">1</constant>
     <constant name="alignment_other">0</constant>
@@ -192,6 +202,7 @@
     <constant name="strategyPigs">2</constant>
     <constant name="strategySelf">3</constant>
     <constant name="aiPrioHeal">-1001</constant>
+    <constant name="aiPrioHealParty">-1002</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

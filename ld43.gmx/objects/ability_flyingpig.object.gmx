@@ -35,6 +35,8 @@ stagesub = 0;
 pigSprite = -1;
 downSpeed = 0;
 pig_alpha = 1;
+
+damageAmount = 5;
 </string>
           </argument>
         </arguments>
@@ -120,7 +122,7 @@ else if (stage == 4) {
         var targetName = target[? "name"];
         targetHeSheIt = target[? "heSheIt"];
         
-        var dmgResult = character_do_damage(target, 6);
+        var dmgResult = character_do_damage(target, damageAmount);
         targetEradicated = dmgResult[1];
         damageMessage = fromCharacter[? "name"] + " dropped a pig from the air, which dealt " + string(floor(dmgResult[0])) + " damage to " + targetName + ".";
         if (targetEradicated)

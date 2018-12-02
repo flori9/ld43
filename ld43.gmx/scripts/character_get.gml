@@ -6,6 +6,11 @@ switch (argument0)
             "Inugor", ", a Young Dark Mage", spr_mage2_icon,
             7, abilities_create_inugor(), "he", 12, 16);
         break;
+    case "Ezobur":
+        return character_create_ext(spr_mage3, 0, 19, 11,
+            "Ezobur", ", the Levitator", spr_mage3_icon,
+            9, abilities_create_ezobur(), "he", 12, 16);
+        break;
     case "Runar":
         return character_create_ext(spr_mage0, 0, 19, 11,
             "Runar", ", the Wise", spr_mage0_icon,
@@ -16,9 +21,15 @@ switch (argument0)
             "Tom", ", the Stupid", spr_mage1_icon,
             7, ds_list_create(), "he", 12, 16);
         break;
+    case "Greatbeard":
+       // abilities_create_greatbeard
+       return character_create_ext(spr_mage4, 0, 20, 10,
+            "Greatbeard", ", the Restorer", spr_mage4_icon,
+            12, ds_list_create(), "he", 12, 16);
+        break;
     case "Farmer":
         return character_create_ext(spr_farmer, 0, 20, 8,
-            "Paulo", ", the Pig Farmer", spr_farmer_icon,
+            "Paulo", ", the Pig Farmer Wizard", spr_farmer_icon,
             5, abilities_create_pigfarmer(), "he", 12, 15);
         break;
         

@@ -53,10 +53,10 @@ with (obj_combat) {
                             ds_list_add(charactersInScene, char[? "identifier"]);
                     } else {
                         if (char[? "identifier"] == "pig") {
-                            scene_destroy_character(char, false);
-                            scene_add_character_you(character_get("Pig"));
-                            newNumberOfPigs += 1;
-                            stolenPigs += 1;
+                            scene_destroy_character(char, true);
+                         //   scene_add_character_you(character_get("Pig"));
+                         //   newNumberOfPigs += 1;
+                         //   stolenPigs += 1;
                         }
                     }
                 }
@@ -76,9 +76,9 @@ with (obj_combat) {
             }
             
             if (healedAnyOne && recoveredAnyOne)
-                extraPostBattleWinText = "Your fallen party members have recovered, and everybody has been healed.";
+                extraPostBattleWinText = "Your fallen team members have recovered, and everybody has been healed.";
             else if (recoveredAnyOne)
-                extraPostBattleWinText = "Your fallen party members have recovered.";
+                extraPostBattleWinText = "Your fallen team members have recovered.";
             else if (healedAnyOne) {
                 extraPostBattleWinText = string_capitalize_first(healedOnly) + " has been healed.";
             }
@@ -88,8 +88,8 @@ with (obj_combat) {
             else if (stolenPigs == 1)
                 extraPostBattleWinText += iif(extraPostBattleWinText == "", "", " ") + "You stole the pig of your enemy.";
                 
-            repeat (newNumberOfPigs)
-                ds_list_add(obj_partymanager.partyMembers, "Pig");
+           // repeat (newNumberOfPigs)
+          //      ds_list_add(obj_partymanager.partyMembers, "Pig");
                
             postBattleWinText += extraPostBattleWinText;
         }

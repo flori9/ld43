@@ -8,6 +8,8 @@ for (var i = 0; i < ds_list_size(obj_partymanager.partyMembers); i++) {
         pigsFound++;
 }
 
+pigsFound = obj_partymanager.numberOfPigs;
+
 repeat (pigsFound) {
     if (scene_find_emptynum() > othersFound) {
         scene_add_character_you(character_get("Pig"));
