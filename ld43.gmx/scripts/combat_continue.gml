@@ -128,6 +128,11 @@ with (obj_combat) {
     }
     
     if (combatCharacter != -1) {
+        if (combatCharacter[? "name"] == "Runar") {
+            with (ability_protect_sub) fadein = false;
+            with (ability_protect_sub) fadeout = true;
+        }
+        
         if (combatCharacter[? "alignment"] == alignment_other)
             combat_do_ai(combatCharacter);
         else

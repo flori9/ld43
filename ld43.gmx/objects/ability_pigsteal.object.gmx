@@ -71,6 +71,12 @@ if (stage == 1) {
         pigRelX = scene_get_x(pigToFlyTo) - x;
         pigRelY = scene_get_y(pigToFlyTo) - y;
         ds_list_delete_first(obj_scene.positionList[| pigToFlyTo[? "x"]], pigToFlyTo);
+        with (ability_protect_sub) {
+            if (protectTarget == other.pigToFlyTo) {
+                fadeout = true;
+                fadein = false;
+            }
+        }
         toY = y - tileHeight * 2.5;
     }
 }

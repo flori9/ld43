@@ -19,6 +19,20 @@ if (reqs[? "mana"] > 0) {
     }
 }
 
+if (reqs[? "hp"] > 0) {
+    repeat (reqs[? "hp"] - 1)
+        ds_list_add(costList, spr_hp_req);
+
+    if (char[? "hp"] < reqs[? "hp"]) {
+        if (cannotUseExplainer != "") cannotUseExplainer += " ";
+        if (reqs[? "hp"] == 2)
+            cannotUseExplainer += "You cannot kill yourself with this spell!";
+        else
+            cannotUseExplainer += "You must have at least " + string(reqs[? "hp"]) + " mana to cast this!";
+        requirementsOK = false;
+    }
+}
+
 if (reqs[? "pigs"] > 0) {
     repeat (reqs[? "pigs"])
         ds_list_add(costList, spr_pig_icon_cost);

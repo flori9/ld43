@@ -7,6 +7,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_mage0</sprite>
+    <sprite>sprites\spr_mage0_angry</sprite>
     <sprite>sprites\spr_mage1</sprite>
     <sprite>sprites\spr_mage2</sprite>
     <sprite>sprites\spr_mage3</sprite>
@@ -26,10 +27,12 @@
       <sprites name="icons">
         <sprite>sprites\spr_farmer_icon</sprite>
         <sprite>sprites\spr_mage0_icon</sprite>
+        <sprite>sprites\spr_mage0_angry_icon</sprite>
         <sprite>sprites\spr_mage1_icon</sprite>
         <sprite>sprites\spr_mage2_icon</sprite>
         <sprite>sprites\spr_mage3_icon</sprite>
         <sprite>sprites\spr_mage4_icon</sprite>
+        <sprite>sprites\spr_mage5_icon</sprite>
         <sprite>sprites\spr_pig_icon</sprite>
         <sprite>sprites\spr_rat_icon</sprite>
         <sprite>sprites\spr_pig_icon_cost</sprite>
@@ -44,10 +47,14 @@
       <sprite>sprites\spr_pigsurge_drop</sprite>
       <sprite>sprites\spr_normalheal_drop</sprite>
       <sprite>sprites\spr_ability_magicbolt</sprite>
+      <sprite>sprites\spr_ability_greaterbolt</sprite>
+      <sprite>sprites\spr_ability_bloodbolt</sprite>
       <sprite>sprites\spr_ability_pigbolt</sprite>
+      <sprite>sprites\spr_ability_protect</sprite>
     </sprites>
     <sprite>sprites\spr_selectionbox</sprite>
     <sprite>sprites\spr_heart</sprite>
+    <sprite>sprites\spr_hp_req</sprite>
     <sprite>sprites\spr_mana</sprite>
     <sprite>sprites\spr_mana_req</sprite>
     <sprite>sprites\spr_heart_alt</sprite>
@@ -127,6 +134,7 @@
     <scripts name="Abilities">
       <script>scripts\abilities_create_inugor.gml</script>
       <script>scripts\abilities_create_runar.gml</script>
+      <script>scripts\abilities_create_runar_angry.gml</script>
       <script>scripts\abilities_create_ezobur.gml</script>
       <script>scripts\abilities_create_greatbeard.gml</script>
       <script>scripts\abilities_create_povatrix.gml</script>
@@ -138,12 +146,14 @@
       <script>scripts\ability_pay_mana_noTarget.gml</script>
       <script>scripts\ability_do_fromstaff.gml</script>
       <script>scripts\ability_pay_mana.gml</script>
+      <script>scripts\ability_pay_hp.gml</script>
       <script>scripts\abilities_add_magicbolt.gml</script>
     </scripts>
     <scripts name="Requirement">
       <script>scripts\requirement_create.gml</script>
       <script>scripts\requirement_set_pigs.gml</script>
       <script>scripts\requirement_set_mana.gml</script>
+      <script>scripts\requirement_set_hp.gml</script>
       <script>scripts\requirement_add_space.gml</script>
     </scripts>
     <scripts name="Combat">
@@ -183,10 +193,15 @@
       <object>objects\ability_pigbloodheal</object>
       <object>objects\ability_pigsurge</object>
       <object>objects\ability_magicbolt</object>
+      <object>objects\ability_greaterbolt</object>
+      <object>objects\ability_bloodbolt</object>
       <object>objects\ability_pigbolt</object>
       <object>objects\ability_normalheal</object>
       <object>objects\ability_pigsteal</object>
       <object>objects\ability_callpig</object>
+      <object>objects\ability_protect</object>
+      <object>objects\ability_protect_sub</object>
+      <object>objects\ability_transform_angry</object>
       <object>objects\obj_ability_part_pigbloodhealdrop</object>
       <object>objects\obj_ability_part_pigsurgedrop</object>
       <object>objects\obj_ability_part_normalhealdrop</object>

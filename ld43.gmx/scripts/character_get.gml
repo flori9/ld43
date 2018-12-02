@@ -3,13 +3,13 @@ switch (argument0)
 {
     case "Inugor":
         return character_create_ext(spr_mage2, 0, 19, 11,
-            "Inugor", ", a Young Dark Mage", spr_mage2_icon,
+            "Inugor", ", the Dark", spr_mage2_icon,
             7, abilities_create_inugor(), "he", 12, 16);
         break;
     case "Povatrix":
         var povatrix = character_create_ext(spr_mage5, 0, 19, 11,
-            "Povatrix", ", the Pigcaller", spr_mage2_icon,
-            5, abilities_create_povatrix(), "he", 12, 16);
+            "Povatrix", ", the Pigcaller", spr_mage5_icon,
+            6, abilities_create_povatrix(), "he", 12, 16);
         povatrix[? "mana"] = 0;
         povatrix[? "maxMana"] = 2;
         return povatrix;
@@ -17,12 +17,15 @@ switch (argument0)
     case "Ezobur":
         return character_create_ext(spr_mage3, 0, 19, 11,
             "Ezobur", ", the Levitator", spr_mage3_icon,
-            6, abilities_create_ezobur(), "he", 12, 16);
+            5, abilities_create_ezobur(), "he", 12, 16);
         break;
     case "Runar":
-        return character_create_ext(spr_mage0, 0, 19, 11,
+        var runar = character_create_ext(spr_mage0, 0, 19, 11,
             "Runar", ", the Wise", spr_mage0_icon,
             9, abilities_create_runar(), "he", 12, 16);
+        runar[? "mana"] = 0;
+        runar[? "maxMana"] = 3;
+        return runar;
         break;
     case "Tom":
         return character_create_ext(spr_mage1, 0, 20, 10,
