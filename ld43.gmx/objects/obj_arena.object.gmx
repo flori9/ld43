@@ -32,7 +32,8 @@ scene_add_character_other(character_get("Pig"));
 scene_add_character_other(character_get("Ezobur"));
 scene_add_character_other(character_get("Pig"));
 scene_add_character_you(character_get("Povatrix"));
-scene_add_character_you(character_get("Runar"));
+scene_add_character_you(character_get("Acorn"));
+scene_add_character_other(character_get("Runar"));
 scene_add_character_other(character_get("Greatbeard"));
 
 repeat (1)

@@ -7,6 +7,7 @@ with (ability_protect_sub) {
         fadein = false;
     }
 }
+
 dmgAmount = clamp(dmgAmount, 0, doDmgOn[? "hp"]); //defences etc.
 
 doDmgOn[? "hp"] -= dmgAmount;

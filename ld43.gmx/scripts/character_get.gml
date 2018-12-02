@@ -27,6 +27,14 @@ switch (argument0)
         runar[? "maxMana"] = 3;
         return runar;
         break;
+    case "Acorn":
+        var acorn = character_create_ext(spr_mage6, 0, 19, 10,
+            "Acorn", " the Natural", spr_mage6_icon,
+            7, abilities_create_acorn(), "he", 12, 16);
+        //acorn[? "mana"] = 0;
+        //acorn[? "maxMana"] = 3;
+        return acorn;
+        break;
     case "Tom":
         return character_create_ext(spr_mage1, 0, 20, 10,
             "Tom", ", the Stupid", spr_mage1_icon,

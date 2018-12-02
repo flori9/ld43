@@ -6,6 +6,12 @@ with (ability_protect_sub) {
         fadein = false;
     }
 }
+with (ability_pigpoison_sub) {
+    if (protectTarget == char) {
+        fadeout = true;
+        fadein = false;
+    }
+}
 ds_list_delete_first(obj_scene.positionList[| char[? "x"]], char);
 if (!argument1)
     ds_map_destroy(char);
