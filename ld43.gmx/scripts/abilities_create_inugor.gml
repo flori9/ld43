@@ -6,7 +6,8 @@ var abilities = ds_list_create();
 //    ability_do_fromstaff_noTarget, ability_pigbloodheal, requirement_set_pigs(requirement_create(), 1, 0), -1));
 
 abilities_add_magicbolt(abilities);
-ds_list_add_map(abilities, ability_create("Pig Surge", "Uses pig magic to do " + string(obj_partymanager.pigSurgeDamage) + " damage to a target.", ability_choose_target, array(alignment_other, ability_do_fromstaff, ability_pigsurge, "Pig Surge", strategyHighestHP), requirement_set_pigs(requirement_create(), 1, 0), 10));
+ds_list_add_map(abilities, ability_create("Pig Surge", "Uses pig magic to do " + string(obj_partymanager.pigSurgeDamage) + " damage to an enemy.", ability_choose_target, array(alignment_other, ability_do_fromstaff, ability_pigsurge, "Pig Surge", strategyHighestHP), requirement_set_pigs(requirement_create(), 1, 0), 10));
+ds_list_add_map(abilities, ability_create("Minor Blood Bolt", "Does two damage at the cost of some blood.", ability_choose_target, array(alignment_other, ability_pay_hp, array(1, ability_do_fromstaff, ability_smallbloodbolt), "Minor Blood Bolt", strategyHighestHP), requirement_set_hp(requirement_create(), 2), 5));
 
 //ds_list_add_map(abilities, ability_create("Heal", "Heal a single person (or pig).", ability_choose_target, array(alignment_you, ability_do_fromstaff, ability_normalheal, "Heal", strategySelf), requirement_create(), aiPrioHeal));
 

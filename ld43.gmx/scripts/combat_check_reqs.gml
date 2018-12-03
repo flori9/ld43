@@ -39,7 +39,7 @@ if (reqs[? "pigs"] > 0) {
     var co = scene_count_identifier("pig", char[? "alignment"]);
     if (co < reqs[? "pigs"]) {
         if (reqs[? "pigs"] == 1 && (reqs[? "mana"] == 1)) {
-            cannotUseExplainer = "You must have a mana and a pig to cast this!";
+            cannotUseExplainer = "You must have one mana and a pig to cast this!";
         }
         else if (reqs[? "pigs"] == 1)
             cannotUseExplainer += "You must have a pig to cast this!";

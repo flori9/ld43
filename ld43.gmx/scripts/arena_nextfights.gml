@@ -98,8 +98,10 @@ else if (argument0 == "battle2_done" || argument0 == "battle2_done_lose") {
         if (obj_arena.twoPlayerNonPlayerTeamLoss[1]) {
             addedName = choose(obj_arena.twoPlayerNonPlayerTeamMembers[2], obj_arena.twoPlayerNonPlayerTeamMembers[3]);
         }
+        scene_add_character_you(character_get(addedName));
+        ds_list_add(obj_partymanager.partyMembers, addedName);
         
-        message_create_simple(extraText + "The final fight will be played with two teams of three mages. As you lost one of your battles, the other team member could choose their extra team member, and " + addedName + " has been added to your team.", arena_nextfights, "battle3_start", -1);
+        message_create_simple(extraText + "The final fight will be played with two teams of three mages. As you lost one of your battles, the other team member was allowed to choose their extra team member, and " + addedName + " has been added to your team.", arena_nextfights, "battle3_start", -1);
     }
 } else if (argument0 == "battle2") {
     with (instance_create(0, 0, obj_combat)) {

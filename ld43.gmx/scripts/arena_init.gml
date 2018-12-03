@@ -19,7 +19,7 @@ if (thisSub == sub) {
 thisSub++;
 
 if (thisSub == sub) {
-    message_create_simple("Don't worry too much about any wounds, as we have great healers who will patch you up after each battle.", arena_init, -1, -1)
+    message_create_simple("Don't worry too much about any wounds, as we have great healers who will patch you right up after each battle.", arena_init, -1, -1)
 }
 thisSub++;
 

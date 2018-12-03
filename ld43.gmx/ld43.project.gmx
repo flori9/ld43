@@ -54,6 +54,7 @@
       <sprite>sprites\spr_ability_magicbolt</sprite>
       <sprite>sprites\spr_ability_greaterbolt</sprite>
       <sprite>sprites\spr_ability_bloodbolt</sprite>
+      <sprite>sprites\spr_ability_smallbloodbolt</sprite>
       <sprite>sprites\spr_ability_pigbolt</sprite>
       <sprite>sprites\spr_ability_protect</sprite>
     </sprites>
@@ -211,11 +212,13 @@
       <object>objects\ability_magicbolt</object>
       <object>objects\ability_greaterbolt</object>
       <object>objects\ability_bloodbolt</object>
+      <object>objects\ability_smallbloodbolt</object>
       <object>objects\ability_pigbolt</object>
       <object>objects\ability_normalheal</object>
       <object>objects\ability_pigsteal</object>
       <object>objects\ability_callpig</object>
       <object>objects\ability_protect</object>
+      <object>objects\ability_acceleratepoison</object>
       <object>objects\ability_protect_sub</object>
       <object>objects\ability_transform_angry</object>
       <object>objects\obj_ability_part_pigbloodhealdrop</object>
