@@ -1,5 +1,5 @@
 ///arena_nextfights(member)
-var standardText = "This game has been made in 48 hours for Ludum Dare 43 'Sacrifices must be made' by Florian van Strien. Thanks for playing!";
+var standardText = "This game has been made by Florian van Strien in 48 hours for Ludum Dare 43 'Sacrifices must be made'. Thanks for playing!";
 if (argument0 == "battle3_done") {
     scene_clear();
     scene_init_ownparty();

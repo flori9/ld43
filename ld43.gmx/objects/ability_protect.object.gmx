@@ -93,7 +93,7 @@ for (var i = 0; i &lt; obj_scene.numberOfPositions; i++) {
     }
     
     if (ready) {
-        combat_show_result_message(fromCharacter[? "name"] + " protected his team for a round for up to one damage per team member.", fromCharacter);
+        combat_show_result_message(fromCharacter[? "name"] + " protected his team for a round from up to one damage per team member.", fromCharacter);
         instance_destroy();
     }
 }

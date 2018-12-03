@@ -10,4 +10,5 @@ with (obj_ability_part_pigbloodhealdrop) instance_destroy();
 with (obj_ability_part_normalhealdrop) instance_destroy();
 with (obj_ability_part_pigsurgedrop) instance_destroy();
 with (obj_ability_part_normalhealdrop) instance_destroy();
+with (ability_pigpoison_sub) instance_destroy();
 with (obj_ability_pigpoison_minipoison) instance_destroy();
