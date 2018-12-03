@@ -5,6 +5,10 @@ with (ability_protect_sub) {
         fadeout = true;
         fadein = false;
     }
+    if (char[? "name"] == "Runar") {
+        fadeout = true;
+        fadein = false;
+    }
 }
 with (ability_pigpoison_sub) {
     if (protectTarget == char) {

@@ -82,8 +82,8 @@ if (transformTime &gt;= 1) {
           <argument>
             <kind>1</kind>
             <string>///Draw angry on top
-
-draw_sprite_ext(spr_mage0_angry, 0, scene_get_x(fromCharacter), scene_get_y(fromCharacter), 1, 1, 0, c_white, transformTime);
+var isRotated = fromCharacter[? "alignment"] == alignment_other;
+draw_sprite_ext(spr_mage0_angry, 0, scene_get_x(fromCharacter) + isRotated * tileWidth, scene_get_y(fromCharacter), iif(isRotated, -1, 1), 1, 0, c_white, transformTime);
 </string>
           </argument>
         </arguments>

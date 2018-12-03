@@ -31,6 +31,8 @@ combatCharacter = -1;
 
 postBattleScript = -1;
 postBattleScriptArg = -1;
+postBattleLoseScript = -1;
+postBattleLoseScriptArg = -1;
 postBattleWinText = "You won the battle!";
 postBattleLoseText = "You have been defeated!";
 

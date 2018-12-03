@@ -28,7 +28,19 @@
             <string>///Init scene
 instance_create(0, 0, obj_scene);
 
-scene_add_character_other(character_get("Pig"));
+currentSub = 0;
+losses = 0;
+
+twoPlayerNonPlayerTeamMembers[0] = -1;
+twoPlayerNonPlayerTeamMembers[1] = -1;
+twoPlayerNonPlayerTeamMembers[2] = -1;
+twoPlayerNonPlayerTeamMembers[3] = -1;
+twoPlayerNonPlayerTeamLoss[0] = false;
+twoPlayerNonPlayerTeamLoss[1] = false;
+
+arena_init(-1);
+
+/*scene_add_character_other(character_get("Pig"));
 scene_add_character_other(character_get("Ezobur"));
 scene_add_character_other(character_get("Pig"));
 scene_add_character_you(character_get("Povatrix"));
@@ -37,15 +49,12 @@ scene_add_character_other(character_get("Runar"));
 scene_add_character_other(character_get("Greatbeard"));
 
 repeat (1)
-scene_add_character_you(character_get("Pig"));
+scene_add_character_you(character_get("Pig"));*/
 
 //scene_add_character_you(character_get("Farmer"));
 
-scene_init_ownparty();
 
-currentSub = 0;
-
-instance_create(0, 0, obj_combat);
+//instance_create(0, 0, obj_combat);
 </string>
           </argument>
         </arguments>

@@ -39,6 +39,8 @@ continueText = "- Click to Continue -";
 continueScript = -1;
 continueScriptArg = -1;
 continueBlocked = false;
+forceButtonsAtHalfW = false;
+forceButtonsAtThirdW = false;
 
 /*
 messageText = "Hey! Don't steal my pigs! They are my most important possession and I can't afford to lose them.";
@@ -148,6 +150,10 @@ if (ds_list_size(buttons) &gt; 0) {
         var thisButton = buttons[| i];
         
         buttonW[i] = button_iconed_get_width(thisButton[? "text"], thisButton[? "mainicon"], thisButton[? "otherIcons"]);
+        if (forceButtonsAtHalfW)
+            buttonW[i] = ww / 2 - 7;
+        if (forceButtonsAtThirdW)
+            buttonW[i] = ww / 3 - 6;
         if (currW + buttonW[i] + 3 &gt; ww - 2) {
             currW = 5;
             buttonsHeight += 17;

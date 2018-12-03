@@ -175,6 +175,13 @@
     </scripts>
     <scripts name="Arena">
       <script>scripts\arena_init_firstbattle.gml</script>
+      <script>scripts\arena_init.gml</script>
+      <script>scripts\arena_choose_first_fighter.gml</script>
+      <script>scripts\arena_init_charchoice.gml</script>
+      <script>scripts\arena_nextfights.gml</script>
+      <script>scripts\arena_scene_show_all.gml</script>
+      <script>scripts\arena_restart.gml</script>
+      <script>scripts\arena_nextfights_choosefinal.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

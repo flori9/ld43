@@ -10,8 +10,8 @@ switch (argument0)
         var povatrix = character_create_ext(spr_mage5, 0, 19, 11,
             "Povatrix", ", the Pigcaller", spr_mage5_icon,
             6, abilities_create_povatrix(), "he", 12, 16);
-        povatrix[? "mana"] = 0;
-        povatrix[? "maxMana"] = 2;
+        povatrix[? "mana"] = 2;
+        povatrix[? "maxMana"] = 3;
         return povatrix;
         break;
     case "Ezobur":
@@ -52,7 +52,7 @@ switch (argument0)
     case "Farmer":
         return character_create_ext(spr_farmer, 0, 20, 8,
             "Paulo", ", the Pig Farmer Wizard", spr_farmer_icon,
-            5, abilities_create_pigfarmer(), "he", 12, 15);
+            4, abilities_create_pigfarmer(), "he", 12, 15);
         break;
         
     case "Pig":

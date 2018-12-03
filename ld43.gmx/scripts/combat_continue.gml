@@ -18,7 +18,7 @@ with (obj_combat) {
     
     if (selfCharacters <= 0) {
         //Defeat!!!
-        message_create_simple(postBattleLoseText, -1, -1, -1);
+        message_create_simple(postBattleLoseText, postBattleLoseScript, postBattleLoseScriptArg, -1);
         instance_destroy();
         exit;
     } else if (otherCharacters <= 0) {

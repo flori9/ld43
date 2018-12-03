@@ -32,12 +32,13 @@ partyMembers = ds_list_create();
 //ds_list_add(partyMembers, "Pig");
 //ds_list_add(partyMembers, "Pig");
 //ds_list_add(partyMembers, "Pig");
-ds_list_add(partyMembers, "Inugor");
+//ds_list_add(partyMembers, "Inugor");
 
+if (room == room3)
 room_goto_next();
 
 pigSurgeDamage = 3;
-numberOfPigs = 2;
+numberOfPigs = 3;
 </string>
           </argument>
         </arguments>
